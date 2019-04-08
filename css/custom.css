@@ -1,0 +1,72 @@
+        .nav_pull {
+            height: 200px;
+        }
+
+        .nav_pull ul {
+            list-style-type: none;
+            float: left;
+        }
+
+        .nav_pull ul li {
+            float: left;
+            position: relative;
+        }
+
+        .nav_pull a {
+            display: block;
+            color: #555;
+            background-color: #eee;
+            padding: .2em 1em;
+            border-color: #ffccff;
+            background-clip: padding-box;
+            text-decoration: none;
+            border-right-style: solid;
+        }
+
+        .nav_pull ul li ul li {
+            float: none;
+        }
+
+        .nav_pull ul li ul {
+            width: 9em;
+            left: 0;
+            top: 100%;
+            position: absolute;
+            display: none;
+        }
+
+        .nav_pull ul li ul li a {
+            border-right-style: none;
+            border-top-style: solid;
+        }
+
+        .nav_pull ul li:hover ul {
+            display: block;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        nav {
+            height: 35px;
+            width: 1000px;
+            margin: 0 auto;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            display: block;
+            width: 130px;
+            line-height: 35px;
+            text-align: center;
+            color: white;
+            font-fimily: 微软雅黑;
+        }
+        .demo {
+            background: red;
+            width: 100%;
+            height: 41px;
+        }

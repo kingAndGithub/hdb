@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+{% load static %}
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Mirrored from qibao360.com/users/sign_in by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 24 Mar 2019 08:42:16 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+  <title>企保360</title>
+
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="keywords" content="保险,互联网保险,户外拓展险,户外活动险,雇主责任险">
+  <meta name="description" content="企保360基于中小微企业投保难，投保成本高的现状，以大数据为手段，以互联网为核心整合优化保险资源，为中小微企业定制“碎片化”的互联网保险产品。">
+  <meta name="renderer" content="webkit">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <script type="text/javascript">
+var navi=window.navigator;
+if (navi.appName=='Microsoft Internet Explorer') {
+  var version =+ (navi.appVersion.split(';')[1].replace(/MSIE/i,''))
+    if (version < 10) {
+      window.location.replace('../browser.html')
+    }
+}
+</script>
+
+  <link rel="shortcut icon" type="image/x-icon" href="assets/favicon.ico" />
+  <link rel="stylesheet" media="all"
+        href="{% static "assets/application.css" %}" data-turbolinks-track="true" />
+  <script src="{% static "assets/application.js" %}" data-turbolinks-track="true"></script>
+  <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="cb3us640btCU7qhhNSwi7HyM7S0l8IHQHlvtVjdbxNNsn3FSLrPhUOl+o5La8qymIJ9OxgWH6tx8Lt91bVV2VA==" />
+</head>
+
+<body>
+
+  <div class="top-inner qibao-logo">
+  <a href="../index.html">
+    <img alt="logo" src="{% static "images/qibao-logo.png" %}" style="margin-top:8px">
+  </a>
+</div>
+<div class="login-main">
+  <div class="top-inner">
+
+    <div class="login-page"></div>
+
+    <div style="height:60px;"></div>
+    <div class="login-box">
+
+      <div class="login-box-title">
+        <div class="login-box-title-name active">账户登录</div>
+        <div class="login-box-title-name">微信登录</div>
+        <div class="clear"></div>
+        <div class="login-box-title-bottom">
+          <div class="login-box-title-bar"></div>
+        </div>
+      </div>
+
+      <div class="login-box-contents">
+      <div class="login-box-contents-inner">
+        <div class="login-box-content">
+          <div class="login-box-content-inner">
+            <div class="error-tips">
+            </div>
+            <form class="login-form" id="new_user" action="{% url "users:sign_in" %}" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="YKgremG7NZ3nn9B5C9wz7+gpfwI7gG5tkbEO7Hf/vtl9irSb4Ty6HZoP24rkAr2ltDrc6Rv3BWHzxDzPLfEMXg==" />
+
+              <input class="login-username" autofocus="autofocus" placeholder="邮箱或者手机号码" type="text" value="" name="username" id="user_email" />
+              <input class="login-password" placeholder="密码" type="password" name="password" id="user_password" />
+                <span style="color:red">{{ msg }}</span>
+                <div class="keep-on-login">
+                  <input name="user[remember_me]" type="hidden" value="0" /><input type="checkbox" value="1" checked="checked" name="remember" id="user_remember_me" />
+                  <span>保持登录状态</span>
+                </div>
+
+              <input type="submit" name="commit" value="登录" class="login-sub" data-disable-with="登录" />
+              <span style="color:red">{{ msg }}</span>
+</form>
+          </div>
+        </div>
+        <div class="login-box-content" id="wx_login"></div>
+        <div class="clear"></div>
+      </div>
+      </div>
+      <div class="login-last-tips">
+        <a href="new_tel_password.html">忘记密码？</a>
+        <a class="right" href="tel_sign_reg.html">注册</a>
+      </div>
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>
+
+<script src="../../res.wx.qq.com/connect/zh_CN/htmledition/js/wxLogin.js"></script>
+<script type="text/javascript" data-turbolinks-eval=false>
+
+function wx_qrcode() {
+  var obj = new WxLogin({
+    id: "wx_login",
+    appid: "wxce39b6a82e52aa7d",
+    scope: "snsapi_login",
+    redirect_uri: "http://qibao360.com/credentials/authorize_pc_callback"
+  });
+}
+
+$(document).on('ready', function(event) {
+  wx_qrcode();
+});
+
+$(document).on('ready page:load', function(event) {
+  wx_qrcode();
+});
+
+</script>
+
+<script type="text/javascript">
+$(function(){
+  $('.login-box-title-name').each(function(i){
+    $(this).click(function(){
+      $(this).addClass('active').siblings().removeClass('active')
+      $('.login-box-title-bar').stop().animate({
+        left:i*150
+      },200)
+      $('.login-box-contents').stop().animate({
+        scrollLeft:i*360
+      },200)
+    })
+  })
+})
+
+$(function(){
+  $('.login-sub').click(function(e){
+    var val=$('.login-username').val()
+    if(val==''){
+      e.preventDefault()
+      $('.error-tips').html('请输入账号').addClass('show')
+      return false
+    }
+    if($('.login-password').val()==''){
+      e.preventDefault()
+      $('.error-tips').html('请输入密码').addClass('show')
+      return false
+    }
+    val=val.replace(/\s/g,'')
+    $('.login-username').val(val)
+
+  })
+})
+</script>
+
+<div class="clear"></div>
+<div class="footer">
+  <div class="top-inner">
+    <p class="footer-copyright">
+    客服热线：400-11-78360，客服邮箱：service@qibao360.com<br>
+    备案号与版权信息：@2014 上海智多屏软件科技有限公司，All rights reserved<br>
+    备案号：沪公网安备 31010802001812号，<a target="_blank" href="http://www.miitbeian.gov.cn/">沪ICP备 14007660号-3</a>，保险网络销售资质提供商：中元保险经纪有限公司，rev: 2017-03-28
+  </p>
+  </div>
+</div>
+
+<style>
+  p.footer-copyright > a {
+    color: white;
+  }
+  p.footer-copyright > a:hover {
+    color: white;
+  }
+  p.footer-copyright > a:visited {
+    color: white;
+  }
+</style>
+
+
+</body>
+
+
+<!-- Mirrored from qibao360.com/users/sign_in by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 24 Mar 2019 08:42:20 GMT -->
+</html>

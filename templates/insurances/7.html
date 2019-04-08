@@ -1,0 +1,886 @@
+{% extends "blogapp/index.html" %}
+{% load static %}
+{% block extracss %}
+    <link rel="shortcut icon" type="image/x-icon" href="{% static "images/favicon.ico" %}" />
+  <link rel="stylesheet" media="all" href="{% static "assets/application_bs.css" %}" data-turbolinks-track="true" />
+  <script src="{% static "assets/application_bs.js" %}" data-turbolinks-track="true"></script>
+  <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="MYmzFHzQgm8jhdk3Nzp/x+fd71MTuGoMXHB7UU1iodcsqyz1/FcN714V0sTY5PGNu85MuDPPAQA+BUlyF2wTUA==" />
+
+{% endblock %}
+{%  block content %}
+
+<div class="container-fluid" style="padding-left:0;padding-right:0;">
+    <div class="top-inner">
+    <nav aria-label="breadcrumb">
+  <ol class="breadcrumb breadcrumb-qibao">
+    您的位置：
+      <li class="breadcrumb-item"><a href="../index.html">首页</a></li>
+    <li class="breadcrumb-item active" aria-current="page">团体税优健康险</li>
+  </ol>
+</nav>
+
+</div>
+
+
+
+<nav class="navbar sticky-top" style="height:80px;background-color:white;border-bottom:1px solid #e1e1e1">
+  <div class="top-inner">
+    <div class="insurance_bought_title left">
+      <span class="title1 bold">团体税优健康险</span>
+      <img class="insurance-logo" src="{% static "images/soochowlife_logo.png" %}" alt="">
+    </div>
+
+        <a id="buy_link" class="btn btn-buy float-right" href="../users/sign_in.html?insurance_id=7">立即购买</a>
+
+    <span class="insurance_bought_title_price red bold">￥<span id="current_price" data-insurance=7 >2400.00</span></span>
+    <div class="insurance_bought_type right">
+    </div>
+    <div class="clear"></div>
+  </div>
+</nav>
+
+<div class="insurance_bought2" style="height: auto;background:rgb(245,245,245);">
+    <div class="top-inner" style="position:relative;background: url(/static/images/detailbigpicture.jpg) no-repeat left center;">
+      <img src="#" alt="" style="position:absolute;top:0;left:0">
+      <div class="insurance_bought2_content">
+        <ul>
+            <li style="background: url(/static/images/feature1.png) left top no-repeat">
+              <p class="title" style="color:#e9aa4c;">两&quot;保&quot;两&quot;无&quot;</p>
+              <p class="content">保至退休年龄  保自费医疗  无等待期 无免赔</p>
+            </li>
+            <li style="background: url(/static/images/feature2.png) left top no-repeat">
+              <p class="title" style="color:#e9aa4c;">节税养险</p>
+              <p class="content">每月200元购险不交税</p>
+            </li>
+            <li style="background: url(/static/images/feature3.png) left top no-repeat">
+              <p class="title" style="color:#e9aa4c;">节税获息</p>
+              <p class="content">个人专属账户，购险结余资金最低利率3% </p>
+            </li>
+            <li style="background: url(/static/images/feature4.png) left top no-repeat">
+              <p class="title" style="color:#e9aa4c;">特色健康服务</p>
+              <p class="content">家庭医生、慢性病管理、肿瘤筛查等特色服务</p>
+            </li>
+        </ul>
+        <div style="height: 55px"></div>
+      </div>
+      <div class="clear"></div>
+    </div>
+</div>
+
+<div class="insurance_infos">
+  <div class="insurance_title">
+    <div class="top-inner">
+      <span>基本信息</span>
+      <div class="more">
+        <a id="claim_link" target="_blank" href="https://view.officeapps.live.com/op/view.aspx?src=http%3A%2F%2Fproduction.qibao360.com%2Fuploads%2Finsurance_term%2Ffile_path%2F5%2Fsoo_tax_incentives_health.doc%3Fe%3D1554021561%26token%3DcAsAAJvflOIhtXoXxl2iNilT6ssw_qOofh8vVWsY%3A3EoifgqvGe2suzra6AhDGLnPOAI%3D">《保险条款与免责条款》</a>和<a target="_blank" href="../help/vocation07a4.html?active=soochowlife">《职业类别表》</a>
+      </div>
+    </div>
+  </div>
+
+    <div id="insurance_quote_id">
+      <div class="insurance_infos_filter top-inner" id="insurance_quote_set" data-url=/api/insurances/team/quote >
+    <div class="insurance_infos_filter_box">
+      <span class="title-left">保障期限</span>
+      <ul data-code=month >
+          <li class="active" id="month_1" data-least="12" data-mode="true">1年 （仅承保上海、江苏、四川、河南、安徽、山东地区）</li>
+      </ul>
+    </div>
+    <div class="clear"></div>
+    <div class="insurance_infos_filter_box">
+      <span class="title-left">保障年龄</span>
+      <ul data-code=age >
+          <li class="active" id="age_1" data-least="16" data-mode="true">16-25周岁</li>
+          <li class="" id="age_2" data-least="26" data-mode="true">26-30周岁</li>
+          <li class="" id="age_3" data-least="31" data-mode="true">31-35周岁</li>
+          <li class="" id="age_4" data-least="36" data-mode="true">36-40周岁</li>
+          <li class="" id="age_5" data-least="41" data-mode="true">41-45周岁</li>
+          <li class="" id="age_6" data-least="46" data-mode="true">46-50周岁</li>
+          <li class="" id="age_7" data-least="51" data-mode="true">51-55周岁</li>
+          <li class="" id="age_8" data-least="56" data-mode="true">56-60周岁</li>
+          <li class="" id="age_9" data-least="61" data-mode="true">61-65周岁</li>
+      </ul>
+    </div>
+    <div class="clear"></div>
+    <div class="insurance_infos_filter_box">
+      <span class="title-left">医保属性</span>
+      <ul data-code=level >
+          <li class="active" id="level_1" data-least="1" data-mode="true">有医保</li>
+          <li class="" id="level_2" data-least="2" data-mode="true">无医保（限连续续保）</li>
+      </ul>
+    </div>
+    <div class="clear"></div>
+</div>
+
+    </div>
+
+  <div class="insurance_infos_main2 top-inner">
+
+  <div class="insurance_info_main2_contents" style="height:auto;">
+      <div class="insurance_info_main2_content" style="display:block">
+        <div class="inner">
+                  <p class="title green bold"></p>
+                <table class="table-main">
+                    <thead>
+                    <tr>
+                      <td style="width:20%">保险利益</td>
+                      <td style="width:30%">保险金额</td>
+                      <td style="width:50%">保险范围</td>
+                    </tr>
+                    </thead>
+                  <tbody>
+                    <tr>
+                        <td class="" style="width:20%">住院及前后门急诊医疗费用</td>
+                      <td style="width:30%">20万</td>
+                      <td style="width:50%">住院发生的必要且合理的医疗费用，与该次住院相同的原因，在该次住院前七日内（含住院当日）以及出院后三十日内（含出院当日）所实际发生并支付的医疗必需且合理的的门诊治疗费，单一材料限额3万。（首次投保时已罹患既往症，总限额4万，单一材料限额5000）
+医保范围100%，医保范围外80%赔付
+</td>
+                    </tr>
+                    <tr>
+                        <td class="" style="width:20%">特定门诊治疗费用</td>
+                      <td style="width:30%">2万</td>
+                      <td style="width:50%">接受恶性肿瘤放射治疗、恶性肿瘤静脉注射化学治疗、血液透析、腹膜透析、肾移植术后抗排异治疗或肝硬化门诊治疗，及其他符合当地基本医疗保险规定的特定门诊治疗的对其每次门诊实际发生并支付的医疗必需且合理的的特定门诊治疗费用。（首次投保时已罹患既往症，总限额5000）
+医保范围100%，医保范围外80%赔付
+</td>
+                    </tr>
+                    <tr>
+                        <td class="" style="width:20%">慢性病门诊治疗费用</td>
+                      <td style="width:30%">3000</td>
+                      <td style="width:50%">接受高血压病、糖尿病、冠心病门诊治疗的，对其每次门诊实际发生并支付的医疗必需且合理的本合同约定范围内的门诊治疗费用。（首次投保时已罹患既往症，总限额1000）
+医保范围100%，医保范围外80%赔付
+</td>
+                    </tr>
+                    <tr>
+                        <td class="" style="width:20%">靶向药品责任</td>
+                      <td style="width:30%">5万</td>
+                      <td style="width:50%">用于治疗恶性肿瘤的靶向药品费用，年度累计限额。（首次投保时已罹患既往症，总限额1万）</td>
+                    </tr>
+                  </tbody>
+                </table>
+                  <p class="title green bold">健康管理服务</p>
+                <table class="table-main">
+                  <tbody>
+                    <tr>
+                          <td rowspan="4" style="width:20%">健康管理服务</td>
+                      <td style="width:30%">家庭医生电话服务</td>
+                      <td style="width:50%">为被保险人提供7天*24小时的健康热线咨询，包括健康风险评估、健康咨询、用药指导、健康教育等服务内容。</td>
+                    </tr>
+                    <tr>
+                      <td style="width:30%">慢性病管理服务</td>
+                      <td style="width:50%">为被保险人提供符合当地饮食生活习惯的慢性病管理服务，包括定期电话问诊咨询，并对用药、饮食、生活习惯进行干预等。</td>
+                    </tr>
+                    <tr>
+                      <td style="width:30%">肿瘤标志物筛查</td>
+                      <td style="width:50%">在每个保单年度内保险人为被保险人提供一次包含甲胎蛋白（AFP）、癌胚抗原（CEA）、肿瘤相关抗原（CA199、CA125）四项的肿瘤标志物筛查服务。（随着医学技术发展及医学检测手段的进步，保险人会对相关肿瘤标志物筛查进行改进提升，肿瘤标志物筛查可能会被替代或者更新）</td>
+                    </tr>
+                    <tr>
+                      <td style="width:30%">恶性肿瘤专家预约挂号</td>
+                      <td style="width:50%">对初次诊断为恶性肿瘤的被保险人，在向本公司提供相关医疗诊断信息和资料进行申请确认后，保险人为被保险人提供北京、上海、南京三个城市的三甲医院副主任医生及以上（不指定医生）专家门诊挂号服务，五个工作日内给予预约安排。</td>
+                    </tr>
+                  </tbody>
+                </table>
+        </div>
+      </div>
+    <div style="height: 60px"></div>
+  </div>
+
+
+  </div>
+
+
+      <div class="tips top-inner" style="display:block">
+            <p class="green" style="font-size:16px;">备注</p>
+                <p>1：首次投保及续保需提供参加公费医疗或基本医疗保险的证明、参加补充医疗保险的证明及列明补充医疗保险的保险责任明细的材料（如有）</p>
+                <p>2：单个保单年度内医疗费用保险金额总限额20万（既往症限额4万）</p>
+                <p>3：保证续保期间内累计医疗费用赔付限额100万（既往症限额15万），靶向药给付限额10万（既往症限额3万）</p>
+                <p>4：若保险人实际赔付的金额低于合同约定范围内被保险人医疗费用的 90%， 保险人将向被保险人自动补齐相关差额</p>
+                <p>5：有医保个人账户每年返还：16-25周岁，1849元；26-30周岁，1579元；31-35周岁，1337元；36-40周岁，889元；41-45周岁，401元；46周岁以上，无。</p>
+                <p>6：无医保个人账户每年返还：16-25周岁，1780元；26-30周岁，1476元；31-35周岁，1204元；36-40周岁，700元；41-45周岁，151元，46周岁以上，无。</p>
+            <p class="green" style="font-size:16px;">特别约定</p>
+                <p>1：异地就医：若被保险人在其医保所在地以外的医疗机构就医，按原有给付比例的乘以80%给付相应保险金；</p>
+                <p>2：不用社保：若被保险人已参加公费医疗或基本医疗保险，但未从公费医疗或基本医疗保险获得费用补偿，医保范围内的费用按50%赔付；</p>
+                <p>3：进口材料：对于医疗必需的国产普通型材料，保险人承担的费用范围参照保险金给付比例表的约定；对于医疗必需的进口材料，保险人按照保险金给付比例表所列的给付比例乘以被保险人已发生的该材料费用30%给付相应保险金。若该进口材料无法用类似国产普通型材料替代的，被保险人需向保险人申请，保险人将按照国产普通型材料费用相同的方式给予赔付。</p>
+      </div>
+
+
+
+</div>
+
+<div class="insurance_guize">
+  <div class="insurance_title">
+    <div class="top-inner">
+      <span>投保流程及规则</span>
+    </div>
+  </div>
+  <div class="insurance_guize_main top-inner">
+    <p class="green title">投保流程</p>
+    <div class="insurance_liucheng_detail">
+      <div style="height:54px;"></div>
+      <p>
+          <span style="padding-left:160px;float:left;">在线上传名单 <br>快递寄送纸质投保文件</span>
+        <span style="padding-left:170px;float:left;">支付保费</span>
+        <span style="padding-left:213px;float:left;">投保完成</span>
+      <div class="clear"></div>
+      </p>
+    </div>
+    <p class="green title">投保规则</p>
+    <ul>
+          <li>20人起保</li>
+          <li>1年期</li>
+          <li>预付费且一次付清</li>
+          <li>最早次日零时生效（限工作日15:00前）</li>
+          <li>投保后不支持替换</li>
+    </ul>
+    <div class="clear"></div>
+
+  </div>
+</div>
+
+<div class="insurance_case">
+  <div class="insurance_title">
+    <div class="top-inner">
+      <span>理赔流程</span>
+    </div>
+  </div>
+  <div class="insurance_case_main top-inner">
+    <div class="insurance_case_box insurance_case_box1">
+    </div>
+    <div class="insurance_case_box insurance_case_box2">
+    </div>
+    <div class="insurance_case_box insurance_case_box3">
+    </div>
+    <div class="insurance_case_box insurance_case_box4">
+    </div>
+
+    <div class="clear"></div>
+
+
+  </div>
+</div>
+
+
+  <div class="insurance_faq">
+    <div class="insurance_title">
+      <div class="top-inner">
+        <span>常见问题</span>
+      </div>
+    </div>
+    <div class="insurance_faq_main top-inner">
+        <p class="green question bold">问：什么情况属于有医保？</p>
+        <p>答：指参加基本医疗保险的人员。基本医疗保险包括城镇职工基本医疗保险、城镇居民基本医疗保险、新型农村合作医疗等基本医疗保险保障项目，以及城乡居民大病保险等保障项目。</p>
+        <p class="green question bold">问：团体税优健康险如何购买？</p>
+        <p>答：企事业单位可以出资为员工购买，且享受相关税优政策。投保后，将提供员工税优识别码，实现“一人一码”。</p>
+        <p class="green question bold">问：如果员工就业单位变更了，如何继续缴纳税优险？</p>
+        <p>答：在本合同有效期内，您可于本合同某一保单年度内申请将本保单转移至其他保险公司符合国务院保险监督管理机构规定的个人税收优惠型健康保险。在其他保险公司同意接受您的保险权益转入后，本公司将与该接受保险权益转入的保险公司办理相关转移事宜。</p>
+        <p class="green question bold">问：可以续保到几周岁？</p>
+        <p>答：续保到国家法定退休年龄，但被保险人实际办理退休时的年龄小于法定退休年龄的，以实际退休年龄为准。</p>
+        <p class="green question bold">问：理赔何时到账？</p>
+        <p>答：所有医疗单据经保险公司审核无误后，14个工作日赔偿金到出险人员本人账户。</p>
+        <p class="green question bold">问：是否提供增值税专用发票？</p>
+        <p>答：有一般纳税人资格的企业可以，但需企业投保前提供开票资料。</p>
+        <p class="green question bold">问：什么是理赔托管？</p>
+        <p>答：包括：协助审核发票、证明等理赔资料；与保险公司对接，争取出险人员应得的保险利益等。</p>
+        <p class="green question bold">问：哪些医疗费用可以理赔？</p>
+        <p>答：社保范围内的费用以及自费药和自费检查费可递交至保险公司申请理赔。对于统筹支付和附加支付的相关费用，保险公司不予赔付。建议理赔备案时对此做详细咨询：400-11-78360</p>
+        <p class="green question bold">问：慢性病指哪些？</p>
+        <p>答：常见慢性病有高血压病、糖尿病、冠心病此类无法彻底治愈，需要长期治疗、护理及特殊康复训练的疾病。详细请参见条款。</p>
+    </div>
+  </div>
+
+<script type="text/javascript">
+var len=$('.insurance_faq_main p').length
+if(len>6){
+  $('.insurance_faq_main').append('<a id="faq_btn" href="javascript:;" class="sum4_show_hide">查看更多 >>></a>')
+  $('.insurance_faq_main').append('<div class="clear"></div>')
+  $('.insurance_faq_main p').each(function(i){
+    if(i>=6){
+      $('.insurance_faq_main p').eq(i).hide()
+    }
+  })
+  var tap=true
+  $('#faq_btn').click(function(){
+    if(tap){
+      $('.insurance_faq_main p').each(function(i){
+        if(i>=6){
+          $('.insurance_faq_main p').eq(i).slideDown(200)
+        }
+      })
+      $(this).html('收起 <<<')
+      tap=false
+    }else{
+      $('.insurance_faq_main p').each(function(i){
+        if(i>=6){
+          $('.insurance_faq_main p').eq(i).slideUp(200)
+        }
+      })
+      $(this).html('查看更多 >>>')
+      tap=true
+    }
+  })
+}
+</script>
+
+
+<script type="text/javascript">
+  function reload_feature() {}
+
+  $(document).ready(function(){
+    $("#dialog_notice").modal("show");
+  });
+</script>
+
+  <script type="text/javascript">
+
+$(function(){
+  var dis=170
+  var top=$(window).scrollTop()
+  //console.log(top)
+  if(top>dis){
+    $('.insurance_bought_inner').addClass('fixed')
+  }else{
+    $('.insurance_bought_inner').removeClass('fixed')
+  }
+  $(window).scroll(function(){
+    var top=$(window).scrollTop()
+    //console.log(top)
+    if(top>dis){
+      $('.insurance_bought_inner').addClass('fixed')
+    }else{
+      $('.insurance_bought_inner').removeClass('fixed')
+    }
+  })
+})
+
+$(function(){
+  $('.insurance_info_main2_top ul li').each(function(i){
+    $(this).click(function(){
+      $(this).addClass('active').siblings().removeClass('active')
+      $('.insurance_info_main2_content').hide()
+      $('.insurance_info_main2_content').eq(i).show()
+      $('.tips').hide();
+      $('.tips').eq(i).show();
+    })
+  })
+})
+
+$(function(){
+  $('.insurance_infos_main .type').each(function(){
+    //if(!$(this).hasClass('active')){
+      $(this).hover(function(){
+        $(this).addClass('hover')
+      },function(){
+        $(this).removeClass('hover')
+      })
+    //}
+  })
+  $('.insurance_infos_main .category ul li .help').each(function(i){
+    $(this).css({'z-index':(15-i)})
+    $(this).hover(function(){
+      $('.text',this).show()
+    },function(){
+      $('.text',this).hide()
+    })
+  })
+})
+
+function calc_insurance_price(){
+
+  var lis = $('.insurance_infos_filter_box ul li.active');
+
+  var ins_data = $('#current_price').attr('data-insurance');
+//reload_selection(ins);
+
+  var hash_req = {}
+  for (var i=0; i<lis.length; i++) {
+    var mode = lis.eq(i).attr('data-mode');
+    if (mode == 'false') {
+      $('#current_price').text('0.00');
+      return;
+    }
+
+    var least = lis.eq(i).attr('data-least');
+
+    var quote_option = lis.eq(i);
+    var quote_group = quote_option.closest('ul');
+    var code = quote_group.attr('data-code');
+
+    hash_req[code] = least;
+  }
+//console.log(hash_req);
+  json_data = JSON.stringify(hash_req);
+
+  ajax_insurance_quote(json_data);
+
+//$('#current_price').text(price.toFixed(2));
+}
+
+function ajax_insurance_quote(value) {
+  var url = $('#insurance_quote_set').attr('data-url');
+//console.log(url);
+  console.log(value);
+
+  $.post({
+    type: "POST",
+    url: url,
+    data: value,
+    dataType: "json",
+    success: function(resp){
+      console.log(resp);
+      if (resp.code == '0000') {
+        var price = parseFloat(resp.data.price);
+        $('#current_price').text(price.toFixed(2));
+      } else {
+        $('#current_price').text(resp.message);
+      }
+    }
+  })
+}
+
+function change_insurance_url(){
+  var ins_data = $('#current_price').attr('data-insurance');
+
+  var url_data = window.location.href.split('?');
+  var ini_data = url_data[0].split('../index.html');
+
+  ini_data[ini_data.length-1] = ins_data;
+  var info = ini_data.join('../index.html');
+
+  url_data[0] = info;
+  var path = url_data.join('?');
+
+  history.replaceState(null, null, path);
+}
+
+$(function(){
+  $('.insurance_infos_filter_box ul li').each(function(){
+    $(this).click(function(){
+      $(this).addClass('active').siblings().removeClass('active');
+      calc_insurance_price();
+    })
+  })
+})
+
+$(function(){
+  $('.insurance_bought_type a').each(function(i){
+    $(this).click(function(){
+
+      var ins_data = $(this).attr('data-insurance');
+      console.log(ins_data);
+      $('#current_price').attr('data-insurance', ins_data);
+
+      if ($('#buy_link').length > 0) {
+        var href_data = $('#buy_link').attr('href').split('=')[0] + "=" + ins_data;
+        $('#buy_link').attr('href', href_data);
+      }
+
+      if ($('#upgrade_btn_id').length > 0) {
+        var upgrade_id = $(this).attr('data-upgrade');
+        if (upgrade_id != "") {
+          var href_data = "/insurances/" + upgrade_id;
+          $('#upgrade_btn_id').attr('href', href_data);
+        }
+      }
+
+      if ($('#claim_link').length > 0) {
+        if($('#claim_link').attr('href').indexOf('officeapps') == -1){
+            var claim_data = $('#claim_link').attr('href').split('../index.html');
+            claim_data[claim_data.length-2] = ins_data;
+            $('#claim_link').attr('href', claim_data.join('../index.html'));
+        }
+      }
+
+      $(this).addClass('active').siblings().removeClass('active');
+      $('.insurance_infos_main .type').eq(i).addClass('active').siblings().removeClass('active');
+
+      $('.insurance_info_main2_top ul li').eq(i).addClass('active').siblings().removeClass('active');
+      $('.insurance_info_main2_content').hide();
+      $('.insurance_info_main2_content').eq(i).show();
+      $('.tips').hide();
+      $('.tips').eq(i).show();
+
+//    reload_feature();
+//    calc_insurance_price();
+      change_insurance_url();
+
+      var window_top = $(window).scrollTop();
+      var infos_top = $('.insurance_infos').offset().top - 40;
+
+      if (Math.abs(window_top - infos_top) <= 50) {
+        $('html,body').animate({scrollTop: infos_top}, 0);
+      } else {
+        $('html,body').animate({scrollTop: infos_top}, 800);
+      }
+    })
+  })
+  $('.insurance_infos_main .type').each(function(i){
+    $(this).click(function(){
+      var ins_data = $('.insurance_bought_type a').eq(i).attr('data-insurance');
+      var ins_id = "#insurance" + ins_data;
+      $(ins_id).click();
+
+      return false;
+
+      /*
+      $('#current_price').attr('data-insurance', ins_data);
+
+      if ($('#buy_link').length > 0) {
+        var href_data = $('#buy_link').attr('href').split('=')[0] + "=" + ins_data;
+        $('#buy_link').attr('href', href_data);
+      }
+
+      if($('#claim_link').attr('href').indexOf('officeapps') == -1) {
+          var claim_data = $('#claim_link').attr('href').split('/');
+          claim_data[claim_data.length - 2] = ins_data;
+          $('#claim_link').attr('href', claim_data.join('/'));
+      }
+
+      $(this).addClass('active').siblings().removeClass('active');
+      $('.insurance_bought_type a').eq(i).addClass('active').siblings().removeClass('active');
+
+      reload_feature();
+      calc_insurance_price();
+      change_insurance_url();
+      */
+    })
+  })
+  $('.insurance_info_main2_top ul li').each(function(i){
+    $(this).click(function(){
+      var ins_data = $('.insurance_bought_type a').eq(i).attr('data-insurance');
+      var ins_id = "#insurance" + ins_data;
+      $(ins_id).click();
+
+      return false;
+
+      /*
+      $('#current_price').attr('data-insurance', ins_data);
+
+      if ($('#buy_link').length > 0) {
+        var href_data = $('#buy_link').attr('href').split('=')[0] + "=" + ins_data;
+        $('#buy_link').attr('href', href_data);
+      }
+
+      var claim_data = $('#claim_link').attr('href').split('/');
+      claim_data[claim_data.length-2] = ins_data;
+      $('#claim_link').attr('href', claim_data.join('/'));
+
+      $(this).addClass('active').siblings().removeClass('active');
+      $('.insurance_info_main2_content').hide();
+      $('.insurance_info_main2_content').eq(i).show();
+      $('.insurance_bought_type a').eq(i).addClass('active').siblings().removeClass('active');
+
+      reload_feature();
+      calc_insurance_price();
+      change_insurance_url();
+      */
+    })
+  })
+})
+</script>
+
+
+  </div>
+
+{%  endblock  %}
+
+     {% block extrajs %}
+<script type="text/javascript">
+var len=$('.insurance_faq_main p').length
+if(len>6){
+  $('.insurance_faq_main').append('<a id="faq_btn" href="javascript:;" class="sum4_show_hide">查看更多 >>></a>')
+  $('.insurance_faq_main').append('<div class="clear"></div>')
+  $('.insurance_faq_main p').each(function(i){
+    if(i>=6){
+      $('.insurance_faq_main p').eq(i).hide()
+    }
+  })
+  var tap=true
+  $('#faq_btn').click(function(){
+    if(tap){
+      $('.insurance_faq_main p').each(function(i){
+        if(i>=6){
+          $('.insurance_faq_main p').eq(i).slideDown(200)
+        }
+      })
+      $(this).html('收起 <<<')
+      tap=false
+    }else{
+      $('.insurance_faq_main p').each(function(i){
+        if(i>=6){
+          $('.insurance_faq_main p').eq(i).slideUp(200)
+        }
+      })
+      $(this).html('查看更多 >>>')
+      tap=true
+    }
+  })
+}
+</script>
+
+
+<script type="text/javascript">
+  function reload_feature() {
+
+  }
+
+  $(document).ready(function(){
+    $("#dialog_notice").modal("show");
+  });
+  insurance_bought_type
+</script>
+
+  <script type="text/javascript">
+
+$(function(){
+  var dis=170
+  var top=$(window).scrollTop()
+  //console.log(top)
+  if(top>dis){
+    $('.insurance_bought_inner').addClass('fixed')
+  }else{
+    $('.insurance_bought_inner').removeClass('fixed')
+  }
+  $(window).scroll(function(){
+    var top=$(window).scrollTop()
+    //console.log(top)
+    if(top>dis){
+      $('.insurance_bought_inner').addClass('fixed')
+    }else{
+      $('.insurance_bought_inner').removeClass('fixed')
+    }
+  })
+})
+
+$(function(){
+  $('.insurance_info_main2_top ul li').each(function(i){
+    $(this).click(function(){
+      $(this).addClass('active').siblings().removeClass('active')
+      $('.insurance_info_main2_content').hide()
+      $('.insurance_info_main2_content').eq(i).show()
+      $('.tips').hide();
+      $('.tips').eq(i).show();
+    })
+  })
+})
+
+$(function(){
+  $('.insurance_infos_main .type').each(function(){
+    //if(!$(this).hasClass('active')){
+      $(this).hover(function(){
+        $(this).addClass('hover')
+      },function(){
+        $(this).removeClass('hover')
+      })
+    //}
+  })
+  $('.insurance_infos_main .category ul li .help').each(function(i){
+    $(this).css({'z-index':(15-i)})
+    $(this).hover(function(){
+      $('.text',this).show()
+    },function(){
+      $('.text',this).hide()
+    })
+  })
+})
+
+function calc_insurance_price(){
+
+  var lis = $('.insurance_infos_filter_box ul li.active');
+
+  var ins_data = $('#current_price').attr('data-insurance');
+//reload_selection(ins);
+
+  var hash_req = {}
+  for (var i=0; i<lis.length; i++) {
+    var mode = lis.eq(i).attr('data-mode');
+    if (mode == 'false') {
+      $('#current_price').text('0.00');
+      return;
+    }
+
+    var least = lis.eq(i).attr('data-least');
+
+    var quote_option = lis.eq(i);
+    var quote_group = quote_option.closest('ul');
+    var code = quote_group.attr('data-code');
+
+    hash_req[code] = least;
+  }
+  console.log("king");
+  var plan = $('.insurance_bought_type a.active')
+  var d = plan.attr('data-remote')
+  if (d == 'false'){
+    $('#current_price').text('0.00');
+      return;
+  }
+  var index = plan.attr('data-insurance')
+  hash_req["plan"] = index
+  console.log(hash_req);
+  json_data = JSON.stringify(hash_req);
+  console.log(hash_req);
+
+  ajax_insurance_quote(json_data);
+
+//$('#current_price').text(price.toFixed(2));
+}
+
+function ajax_insurance_quote(value) {
+  var url = $('#insurance_quote_set').attr('data-url');
+  console.log(url);
+  console.log(value);
+
+  $.post({
+    type: "POST",
+    url: url,
+    data: value,
+    dataType: "json",
+    success: function(resp){
+      console.log(resp);
+      if (resp.code == '0000') {
+        var price = parseFloat(resp.data.price);
+        $('#current_price').text(price.toFixed(2));
+      } else {
+        $('#current_price').text(resp.message);
+      }
+    }
+  })
+}
+
+function change_insurance_url(){
+  var ins_data = $('#current_price').attr('data-insurance');
+
+  var url_data = window.location.href.split('?');
+  var ini_data = url_data[0].split('../index.html');
+
+  ini_data[ini_data.length-1] = ins_data;
+  var info = ini_data.join('../index.html');
+
+  url_data[0] = info;
+  var path = url_data.join('?');
+
+  history.replaceState(null, null, path);
+}
+
+$(function(){
+  $('.insurance_infos_filter_box ul li').each(function(){
+    $(this).click(function(){
+      $(this).addClass('active').siblings().removeClass('active');
+      calc_insurance_price();
+    })
+  })
+})
+
+$(function(){
+  $('.insurance_bought_type a').each(function(i){
+    $(this).click(function(){
+
+      var ins_data = $(this).attr('data-insurance');
+      console.log(ins_data);
+      $('#current_price').attr('data-insurance', ins_data);
+
+      if ($('#buy_link').length > 0) {
+        var href_data = $('#buy_link').attr('href').split('=')[0] + "=" + ins_data;
+        $('#buy_link').attr('href', href_data);
+      }
+
+      if ($('#upgrade_btn_id').length > 0) {
+        var upgrade_id = $(this).attr('data-upgrade');
+        if (upgrade_id != "") {
+          var href_data = "/insurances/" + upgrade_id;
+          $('#upgrade_btn_id').attr('href', href_data);
+        }
+      }
+
+      if ($('#claim_link').length > 0) {
+        if($('#claim_link').attr('href').indexOf('officeapps') == -1){
+            var claim_data = $('#claim_link').attr('href').split('../index.html');
+            claim_data[claim_data.length-2] = ins_data;
+            $('#claim_link').attr('href', claim_data.join('../index.html'));
+        }
+      }
+
+      $(this).addClass('active').siblings().removeClass('active');
+      $('.insurance_infos_main .type').eq(i).addClass('active').siblings().removeClass('active');
+
+      $('.insurance_info_main2_top ul li').eq(i).addClass('active').siblings().removeClass('active');
+      $('.insurance_info_main2_content').hide();
+      $('.insurance_info_main2_content').eq(i).show();
+      $('.tips').hide();
+      $('.tips').eq(i).show();
+
+//    reload_feature();
+      calc_insurance_price();
+      change_insurance_url();
+
+      var window_top = $(window).scrollTop();
+      var infos_top = $('.insurance_infos').offset().top - 40;
+
+      if (Math.abs(window_top - infos_top) <= 50) {
+        $('html,body').animate({scrollTop: infos_top}, 0);
+      } else {
+        $('html,body').animate({scrollTop: infos_top}, 800);
+      }
+    })
+  })
+  $('.insurance_infos_main .type').each(function(i){
+    $(this).click(function(){
+      var ins_data = $('.insurance_bought_type a').eq(i).attr('data-insurance');
+      var ins_id = "#insurance" + ins_data;
+      $(ins_id).click();
+
+      return false;
+
+      /*
+      $('#current_price').attr('data-insurance', ins_data);
+
+      if ($('#buy_link').length > 0) {
+        var href_data = $('#buy_link').attr('href').split('=')[0] + "=" + ins_data;
+        $('#buy_link').attr('href', href_data);
+      }
+
+      if($('#claim_link').attr('href').indexOf('officeapps') == -1) {
+          var claim_data = $('#claim_link').attr('href').split('/');
+          claim_data[claim_data.length - 2] = ins_data;
+          $('#claim_link').attr('href', claim_data.join('/'));
+      }
+
+      $(this).addClass('active').siblings().removeClass('active');
+      $('.insurance_bought_type a').eq(i).addClass('active').siblings().removeClass('active');
+
+      reload_feature();
+      calc_insurance_price();
+      change_insurance_url();
+      */
+    })
+  })
+  $('.insurance_info_main2_top ul li').each(function(i){
+    $(this).click(function(){
+      var ins_data = $('.insurance_bought_type a').eq(i).attr('data-insurance');
+      var ins_id = "#insurance" + ins_data;
+
+      $(ins_id).click();
+
+      return false;
+    })
+  })
+})
+</script>
+
+<script src="{% static "css/popper.min.js" %}" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="{% static "css/bootstrap.min.js" %}" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+{% endblock %}
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <!--
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  -->
+
+
+
+
+</body>
+
+
+<!-- Mirrored from qibao360.com/insurances/125 by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 24 Mar 2019 08:43:30 GMT -->
+</html>

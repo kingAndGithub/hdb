@@ -1,0 +1,1008 @@
+{% extends "blogapp/index.html" %}
+{% load static %}
+{% block extracss %}
+    <link rel="shortcut icon" type="image/x-icon" href="{% static "images/favicon.ico" %}" />
+  <link rel="stylesheet" media="all" href="{% static "assets/application_bs.css" %}" data-turbolinks-track="true" />
+  <script src="{% static "assets/application_bs.js" %}" data-turbolinks-track="true"></script>
+  <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="MYmzFHzQgm8jhdk3Nzp/x+fd71MTuGoMXHB7UU1iodcsqyz1/FcN714V0sTY5PGNu85MuDPPAQA+BUlyF2wTUA==" />
+
+{% endblock %}
+{%  block content %}
+
+<div class="container-fluid" style="padding-left:0;padding-right:0;">
+    <div class="top-inner">
+    <nav aria-label="breadcrumb">
+  <ol class="breadcrumb breadcrumb-qibao">
+    您的位置：
+      <li class="breadcrumb-item"><a href="../index.html">首页</a></li>
+    <li class="breadcrumb-item active" aria-current="page">户外活动险</li>
+  </ol>
+</nav>
+<nav class="navbar sticky-top" style="height:80px;background-color:white;border-bottom:1px solid #e1e1e1">
+  <div class="top-inner">
+    <div class="insurance_bought_title left">
+      <span class="title1 bold">户外活动险</span>
+      <img class="insurance-logo" src="../assets/desktop/huatai_logo-932cecb5ca0e29c425bcadb4932d45626b5347763dfcf34f1e0e1bd8056c90ea.png" alt="">
+    </div>
+
+        <a id="buy_link" class="btn btn-buy float-right" href="../users/sign_in.html?insurance_id=121">立即购买</a>
+
+    <span class="insurance_bought_title_price red bold">￥<span id="current_price" data-insurance=121 >50.00</span></span>
+    <div class="insurance_bought_type right">
+          <a data-remote="true" id='insurance121' data-insurance="121" data-upgrade="" class="" href="121.html">A方案</a>
+          <a data-remote="true" id='insurance122' data-insurance="122" data-upgrade="" class="" href="122.html">B方案</a>
+          <a data-remote="true" id='insurance123' data-insurance="123" data-upgrade="" class="" href="123.html">C方案</a>
+          <a data-remote="true" id='insurance124' data-insurance="124" data-upgrade="" class="active" href="124.html">D方案</a>
+    </div>
+    <div class="clear"></div>
+  </div>
+</nav>
+
+<div class="insurance_bought2" style="height: auto;background:rgb(245,245,245);">
+    <div class="top-inner" style="position:relative;background: url(/static/images/outeractivity.jpg) no-repeat left center;">
+      <img src="{% static "images/mark_03.png" %}" alt="" style="position:absolute;top:0;left:0">
+      <div class="insurance_bought2_content">
+        <ul>
+            <li style="background: url(/static/images/feature_06.png) left top no-repeat">
+              <p class="title" style="color:#0374c6;">承保自费项目、承保急性病</p>
+              <p class="content">承保保险责任范围内的，社保目录内用药以及自费药、自费检查费。统筹支付、附加支付和医疗辅助器具（如拐杖、轮椅）相关费用除外；承保活动中发生的中暑、急性肠胃炎等急性病。</p>
+            </li>
+            <li style="background: url(/static/images/feature_09.png) left top no-repeat">
+              <p class="title" style="color:#0374c6;">可当天投保</p>
+              <p class="content">需临时增加人员时，活动当天12点前可投保，已出险情况除外</p>
+            </li>
+            <li style="background: url(/static/images/feature_12.png) left top no-repeat">
+              <p class="title" style="color:#0374c6;">紧急就医医院不受限</p>
+              <p class="content">出险请至二级及以上公立医院就诊；出险当日首次就医，限急诊，限制放宽至一级公立医院</p>
+            </li>
+            <li style="background: url(/static/images/feature_14.png) left top no-repeat">
+              <p class="title" style="color:#0374c6;">提供电子保单和电子发票</p>
+              <p class="content">投保后最迟5个工作日可在线下载增值税普通发票电子发票；仅提供电子保单，与纸质保单具有同等法律效力</p>
+            </li>
+        </ul>
+        <div style="height: 55px"></div>
+      </div>
+      <div class="clear"></div>
+    </div>
+</div>
+
+<div class="insurance_infos">
+  <div class="insurance_title">
+    <div class="top-inner">
+      <span>基本信息</span>
+      <div class="more">
+        <a id="claim_link" target="_blank" href="https://view.officeapps.live.com/op/view.aspx?src=http%3A%2F%2Fproduction.qibao360.com%2Fuploads%2Finsurance_term%2Ffile_path%2F1%2Fhuatai_outdoor_insurance_a_72e9873d4a.doc%3Fe%3D1554021562%26token%3DcAsAAJvflOIhtXoXxl2iNilT6ssw_qOofh8vVWsY%3AQx2TnO3Cv6Np_dr06pUzZFnacG8%3D">《保险条款与免责条款》</a>
+      </div>
+    </div>
+  </div>
+
+    <div id="insurance_quote_id">
+      <div class="insurance_infos_filter top-inner" id="insurance_quote_set" data-url=/api/insurances/outer/quote >
+    <div class="insurance_infos_filter_box">
+      <span class="title-left">保障期限</span>
+      <ul data-code=day >
+          <li class="active" id="day_1" data-least="1" data-mode="true">1天</li>
+          <li class="" id="day_2" data-least="2" data-mode="true">2-3天</li>
+          <li class="" id="day_3" data-least="4" data-mode="true">4-5天</li>
+          <li class="" id="day_4" data-least="6" data-mode="true">6-10天</li>
+          <li class="" id="day_5" data-least="11" data-mode="true">11-15天</li>
+          <li class="" id="day_6" data-least="16" data-mode="true">16-20天</li>
+          <li class="" id="day_7" data-least="21" data-mode="true">21-30天</li>
+      </ul>
+    </div>
+    <div class="clear"></div>
+    <div class="insurance_infos_filter_box">
+      <span class="title-left">保障年龄</span>
+      <ul data-code=age >
+          <li class="active" id="age_1" data-least="1" data-mode="true">1-70周岁</li>
+      </ul>
+    </div>
+    <div class="clear"></div>
+</div>
+
+    </div>
+
+  <div class="insurance_infos_main2 top-inner">
+      <div class="insurance_info_main2_top">
+  <ul>
+      <li style="margin:0" class=""><a href="javascript:;">A方案</a></li>
+      <li style="" class=""><a href="javascript:;">B方案</a></li>
+      <li style="" class=""><a href="javascript:;">C方案</a></li>
+      <li style="" class="active"><a href="javascript:;">D方案</a></li>
+  </ul>
+  &nbsp;
+  <div class="clear"></div>
+</div>
+
+  <div class="insurance_info_main2_contents" style="height:auto;">
+      <div class="insurance_info_main2_content" style="">
+        <div class="inner">
+                  <p class="title green bold"></p>
+                <table class="table-main">
+                    <thead>
+                    <tr>
+                      <td style="width:20%">保险利益</td>
+                      <td style="width:30%">保险金额</td>
+                      <td style="width:50%">保险范围</td>
+                    </tr>
+                    </thead>
+                  <tbody>
+                    <tr>
+                        <td class="" style="width:20%">意外身故</td>
+                      <td style="width:30%">10万</td>
+                      <td style="width:50%">被保险人在1-3类风险项目中遭受意外伤害事故，并自事故发生之日起180日内因该事故身故</td>
+                    </tr>
+                    <tr>
+                        <td class="" style="width:20%">意外伤残</td>
+                      <td style="width:30%">10万</td>
+                      <td style="width:50%">被保险人在1-3类风险项目中遭受意外伤害事故，并鉴定伤残等级，按比例赔付</td>
+                    </tr>
+                    <tr>
+                        <td class="" style="width:20%">意外医疗</td>
+                      <td style="width:30%">3万</td>
+                      <td style="width:50%">被保险人在1-3类风险项目中因意外伤害事故产生的合理就诊费用（包含自费项，180天内），0免赔，100%赔付，第三方（包括社保、其他商业保险等）已赔付的除外，镶牙、祛疤、辅助器材、康复训练等费用不在责任范围内</td>
+                    </tr>
+                    <tr>
+                        <td class="" style="width:20%">高风险运动意外身故</td>
+                      <td style="width:30%">10万</td>
+                      <td style="width:50%">扩展承保高风险项目的意外身故，与一般意外伤害保额不叠加</td>
+                    </tr>
+                    <tr>
+                        <td class="" style="width:20%">高风险运动意外伤残</td>
+                      <td style="width:30%">10万</td>
+                      <td style="width:50%">扩展承保高风险项目的意外伤残，与一般意外伤害保额不叠加</td>
+                    </tr>
+                    <tr>
+                        <td class="" style="width:20%">高风险意外医疗</td>
+                      <td style="width:30%">3万</td>
+                      <td style="width:50%">扩展承保高风险项目的意外医疗，与一般意外伤害保额不叠加</td>
+                    </tr>
+                    <tr>
+                        <td class="" style="width:20%">急性病身故</td>
+                      <td style="width:30%">10万</td>
+                      <td style="width:50%">保险期间内，被保险人突发急性病，并自发病之日起3日内因该急性病导致身故的，保险人按急性病身故保险金给付身故保险金。急性病的范围如下：(1)高热（成人达到38.5摄氏度或以上，小儿达到39摄氏度或以上）、(2)急性阑尾炎或剧烈呕吐或严重腹泻、(3)休克或昏迷、 (4)高原反应、(5)癫痫发作、(6)严重喘息或呼吸困难、(7)急性心肌梗塞或心力衰竭或严重心律失常、(8)高血压危象、高血压脑 病、脑血管意外、(9)非因意外伤害所导致的出血、(10)急性尿潴留、(11)非因意外伤害所导致的、突发性的眼睛红肿、疼痛或视力障碍等，因中暑和食物中毒引起的人身伤亡损失。</td>
+                    </tr>
+                    <tr>
+                        <td class="" style="width:20%">急性病医疗</td>
+                      <td style="width:30%">1万</td>
+                      <td style="width:50%">被保险人在活动期间因突发急性疾病产生的合理就诊费用，0免赔（包含自费项，90天内），100%赔付，第三方（包括社保、其他商业保险等）已赔付的除外，（急性病的范围同上）</td>
+                    </tr>
+                    <tr>
+                        <td class="" style="width:20%">意外住院津贴</td>
+                      <td style="width:30%">50元/天</td>
+                      <td style="width:50%">活动期间，因意外、高风险运动意外就医，并在保险有效期内开始住院可获赔，以医疗记载天数为准，每次事故不超过90天</td>
+                    </tr>
+                    <tr>
+                        <td class="" style="width:20%">意外骨折津贴</td>
+                      <td style="width:30%">25元/天</td>
+                      <td style="width:50%">活动期间，因意外、高风险意外导致骨折可获赔，根据条款中的骨折给付表给付（或可查看问答）（与意外住院津贴可以叠加，如果有2处及以上多处骨折者，骨折津贴给付以金额高者为准）</td>
+                    </tr>
+                    <tr>
+                        <td class="" style="width:20%">救护车费用</td>
+                      <td style="width:30%">3000元</td>
+                      <td style="width:50%">因意外产生的合理的救护车费用</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <table class="table-main">
+                  <tbody>
+                    <tr>
+                          <td rowspan="4" style="width:20%">项目分类</td>
+                      <td style="width:30%">承保常规项目</td>
+                      <td style="width:50%">场地地面拓展训练（在地面进行的拓展项目：挑战150秒、急速60秒、七巧板、孤岛求生、团建大厨房等）；<br>
+场地中低空拓展训练（高度不超过5米的中、低空拓展项目：如毕业墙、穿越电网、信任背摔等）；<br>
+场地高空拓展训练（高度不超过15米的高空拓展项目：如高空抓杠、断桥、合力过桥、攀岩等）；<br>
+场地主题类活动（趣味运动会、员工家庭日、彩虹跑、真人CS射击游戏、大型充气道具比赛、密室逃脱等活动） ；<br>
+室内拓展训练项目；室内沙盘模拟项目；常规会议和培训活动；<br>
+其他未列明但风险等同以上项目的活动
+
+</td>
+                    </tr>
+                    <tr>
+                      <td style="width:30%">承保高风险项目</td>
+                      <td style="width:50%">场地经典户外运动（场地滑雪，场地滑冰，场地攀岩，场地攀冰、场地速降等）<br>
+场地军事化训练（军训、军事主题拓展训练、魔鬼训练、拉练、野外生存等）<br>
+徒步穿越（沙漠、戈壁、古道、原始森林、戈壁、景点、森林公园徒步穿越）；<br>
+定向活动（山地定向，景区定向，城市定向，定向寻宝）；<br>
+速降活动（高度不超过50米的天然岩体的速降、水坝速降、高空速降）；<br>
+体育活动（如：乒乓球、羽毛球等趣味比赛、健步走和跑步等非职业运动员参加的活动），身体对抗性活动除外，如篮球、足球；<br>
+自驾车旅行，越野车穿越活动；<br>
+水上活动（漂流、溯溪、皮划艇、龙舟、帆船、浆板、摩托艇、汽艇等水上运动）；<br>
+潜水（下潜深度不超过18米）；登山活动;<br>
+其他未列明但风险等同以上项目的活动
+</td>
+                    </tr>
+                    <tr>
+                      <td style="width:30%">承保高风险运动</td>
+                      <td style="width:50%">潜水、滑雪、滑水、热气球、蹦极、冲浪、风筝冲浪、攀岩、速降、自行车、骑马，登山（海拔6000米以下）</td>
+                    </tr>
+                    <tr>
+                      <td style="width:30%">不保项目</td>
+                      <td style="width:50%">本保险不承保专业赛事、职业体育赛事或任何设有奖金或报酬的体育运动（如：马拉松）。<br>
+本保险不承保的体育项目：手球、篮球、足球、排球、冰球、橄榄球、曲棍球、水球、马球、板球、垒球，马拉松 、3000米以上（含）障碍跑、20公里以上（含）竞走、撑竿跳高，和任何非拓展企业组织的体育项目。</td>
+                    </tr>
+                  </tbody>
+                </table>
+        </div>
+      </div>
+      <div class="insurance_info_main2_content" style="">
+        <div class="inner">
+                  <p class="title green bold"></p>
+                <table class="table-main">
+                    <thead>
+                    <tr>
+                      <td style="width:20%">保险利益</td>
+                      <td style="width:30%">保险金额</td>
+                      <td style="width:50%">保险范围</td>
+                    </tr>
+                    </thead>
+                  <tbody>
+                    <tr>
+                        <td class="" style="width:20%">意外身故</td>
+                      <td style="width:30%">20万</td>
+                      <td style="width:50%">被保险人在1-3类风险项目中遭受意外伤害事故，并自事故发生之日起180日内因该事故身故</td>
+                    </tr>
+                    <tr>
+                        <td class="" style="width:20%">意外伤残</td>
+                      <td style="width:30%">20万</td>
+                      <td style="width:50%">被保险人在1-3类风险项目中遭受意外伤害事故，并鉴定伤残等级，按比例赔付</td>
+                    </tr>
+                    <tr>
+                        <td class="" style="width:20%">意外医疗</td>
+                      <td style="width:30%">4万</td>
+                      <td style="width:50%">被保险人在1-3类风险项目中因意外伤害事故产生的合理就诊费用（包含自费项，180天内），0免赔，100%赔付，第三方（包括社保、其他商业保险等）已赔付的除外，镶牙、祛疤、辅助器材、康复训练等费用不在责任范围内</td>
+                    </tr>
+                    <tr>
+                        <td class="" style="width:20%">高风险运动意外身故</td>
+                      <td style="width:30%">20万</td>
+                      <td style="width:50%">扩展承保高风险项目的意外身故，与一般意外伤害保额不叠加</td>
+                    </tr>
+                    <tr>
+                        <td class="" style="width:20%">高风险运动意外伤残</td>
+                      <td style="width:30%">20万</td>
+                      <td style="width:50%">扩展承保高风险项目的意外伤残，与一般意外伤害保额不叠加</td>
+                    </tr>
+                    <tr>
+                        <td class="" style="width:20%">高风险意外医疗</td>
+                      <td style="width:30%">4万</td>
+                      <td style="width:50%">扩展承保高风险项目的意外医疗，与一般意外伤害保额不叠加</td>
+                    </tr>
+                    <tr>
+                        <td class="" style="width:20%">急性病身故</td>
+                      <td style="width:30%">10万</td>
+                      <td style="width:50%">保险期间内，被保险人突发急性病，并自发病之日起3日内因该急性病导致身故的，保险人按急性病身故保险金给付身故保险金。急性病的范围如下：(1)高热（成人达到38.5摄氏度或以上，小儿达到39摄氏度或以上）、(2)急性阑尾炎或剧烈呕吐或严重腹泻、(3)休克或昏迷、 (4)高原反应、(5)癫痫发作、(6)严重喘息或呼吸困难、(7)急性心肌梗塞或心力衰竭或严重心律失常、(8)高血压危象、高血压脑 病、脑血管意外、(9)非因意外伤害所导致的出血、(10)急性尿潴留、(11)非因意外伤害所导致的、突发性的眼睛红肿、疼痛或视力障碍等，因中暑和食物中毒引起的人身伤亡损失。</td>
+                    </tr>
+                    <tr>
+                        <td class="" style="width:20%">急性病医疗</td>
+                      <td style="width:30%">1万</td>
+                      <td style="width:50%">被保险人在活动期间因突发急性疾病产生的合理就诊费用，0免赔（包含自费项，90天内），100%赔付，第三方（包括社保、其他商业保险等）已赔付的除外，（急性病的范围同上）</td>
+                    </tr>
+                    <tr>
+                        <td class="" style="width:20%">意外住院津贴</td>
+                      <td style="width:30%">50元/天</td>
+                      <td style="width:50%">活动期间，因意外、高风险运动意外就医，并在保险有效期内开始住院可获赔，以医疗记载天数为准，每次事故不超过90天</td>
+                    </tr>
+                    <tr>
+                        <td class="" style="width:20%">意外骨折津贴</td>
+                      <td style="width:30%">50元/天</td>
+                      <td style="width:50%">活动期间，因意外、高风险意外导致骨折可获赔，根据条款中的骨折给付表给付（或可查看问答）（与意外住院津贴可以叠加，如果有2处及以上多处骨折者，骨折津贴给付以金额高者为准）</td>
+                    </tr>
+                    <tr>
+                        <td class="" style="width:20%">救护车费用</td>
+                      <td style="width:30%">3000元</td>
+                      <td style="width:50%">因意外产生的合理的救护车费用</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <table class="table-main">
+                  <tbody>
+                    <tr>
+                          <td rowspan="4" style="width:20%">项目分类</td>
+                      <td style="width:30%">承保常规项目</td>
+                      <td style="width:50%">场地地面拓展训练（在地面进行的拓展项目：挑战150秒、急速60秒、七巧板、孤岛求生、团建大厨房等）；<br>
+场地中低空拓展训练（高度不超过5米的中、低空拓展项目：如毕业墙、穿越电网、信任背摔等）；<br>
+场地高空拓展训练（高度不超过15米的高空拓展项目：如高空抓杠、断桥、合力过桥、攀岩等）；<br>
+场地主题类活动（趣味运动会、员工家庭日、彩虹跑、真人CS射击游戏、大型充气道具比赛、密室逃脱等活动） ；<br>
+室内拓展训练项目；室内沙盘模拟项目；常规会议和培训活动；<br>
+其他未列明但风险等同以上项目的活动
+
+</td>
+                    </tr>
+                    <tr>
+                      <td style="width:30%">承保高风险项目</td>
+                      <td style="width:50%">场地经典户外运动（场地滑雪，场地滑冰，场地攀岩，场地攀冰、场地速降等）<br>
+场地军事化训练（军训、军事主题拓展训练、魔鬼训练、拉练、野外生存等）<br>
+徒步穿越（沙漠、戈壁、古道、原始森林、戈壁、景点、森林公园徒步穿越）；<br>
+定向活动（山地定向，景区定向，城市定向，定向寻宝）；<br>
+速降活动（高度不超过50米的天然岩体的速降、水坝速降、高空速降）；<br>
+体育活动（如：乒乓球、羽毛球等趣味比赛、健步走和跑步等非职业运动员参加的活动），身体对抗性活动除外，如篮球、足球；<br>
+自驾车旅行，越野车穿越活动；<br>
+水上活动（漂流、溯溪、皮划艇、龙舟、帆船、浆板、摩托艇、汽艇等水上运动）；<br>
+潜水（下潜深度不超过18米）；登山活动;<br>
+其他未列明但风险等同以上项目的活动
+</td>
+                    </tr>
+                    <tr>
+                      <td style="width:30%">承保高风险运动</td>
+                      <td style="width:50%">潜水、滑雪、滑水、热气球、蹦极、冲浪、风筝冲浪、攀岩、速降、自行车、骑马、登山（海拔6000米以下）</td>
+                    </tr>
+                    <tr>
+                      <td style="width:30%">不保项目</td>
+                      <td style="width:50%">本保险不承保专业赛事、职业体育赛事或任何设有奖金或报酬的体育运动（如：马拉松）。<br>
+本保险不承保的体育项目：手球、篮球、足球、排球、冰球、橄榄球、曲棍球、水球、马球、板球、垒球，马拉松 、3000米以上（含）障碍跑、20公里以上（含）竞走、撑竿跳高，和任何非拓展企业组织的体育项目。</td>
+                    </tr>
+                  </tbody>
+                </table>
+        </div>
+      </div>
+      <div class="insurance_info_main2_content" style="">
+        <div class="inner">
+                  <p class="title green bold"></p>
+                <table class="table-main">
+                    <thead>
+                    <tr>
+                      <td style="width:20%">保险利益</td>
+                      <td style="width:30%">保险金额</td>
+                      <td style="width:50%">保险范围</td>
+                    </tr>
+                    </thead>
+                  <tbody>
+                    <tr>
+                        <td class="" style="width:20%">意外身故</td>
+                      <td style="width:30%">30万</td>
+                      <td style="width:50%">被保险人在1-3类风险项目中遭受意外伤害事故，并自事故发生之日起180日内因该事故身故</td>
+                    </tr>
+                    <tr>
+                        <td class="" style="width:20%">意外伤残</td>
+                      <td style="width:30%">30万</td>
+                      <td style="width:50%">被保险人在1-3类风险项目中遭受意外伤害事故，并鉴定伤残等级，按比例赔付</td>
+                    </tr>
+                    <tr>
+                        <td class="" style="width:20%">意外医疗</td>
+                      <td style="width:30%">5万</td>
+                      <td style="width:50%">被保险人在1-3类风险项目中因意外伤害事故产生的合理就诊费用（包含自费项，180天内），0免赔，100%赔付，第三方（包括社保、其他商业保险等）已赔付的除外，镶牙、祛疤、辅助器材、康复训练等费用不在责任范围内</td>
+                    </tr>
+                    <tr>
+                        <td class="" style="width:20%">高风险运动意外身故</td>
+                      <td style="width:30%">30万</td>
+                      <td style="width:50%">扩展承保高风险项目的意外身故，与一般意外伤害保额不叠加</td>
+                    </tr>
+                    <tr>
+                        <td class="" style="width:20%">高风险运动意外伤残</td>
+                      <td style="width:30%">30万</td>
+                      <td style="width:50%">扩展承保高风险项目的意外伤残，与一般意外伤害保额不叠加</td>
+                    </tr>
+                    <tr>
+                        <td class="" style="width:20%">高风险意外医疗</td>
+                      <td style="width:30%">5万</td>
+                      <td style="width:50%">扩展承保高风险项目的意外医疗，与一般意外伤害保额不叠加</td>
+                    </tr>
+                    <tr>
+                        <td class="" style="width:20%">急性病身故</td>
+                      <td style="width:30%">10万</td>
+                      <td style="width:50%">保险期间内，被保险人突发急性病，并自发病之日起3日内因该急性病导致身故的，保险人按急性病身故保险金给付身故保险金。急性病的范围如下：(1)高热（成人达到38.5摄氏度或以上，小儿达到39摄氏度或以上）、(2)急性阑尾炎或剧烈呕吐或严重腹泻、(3)休克或昏迷、 (4)高原反应、(5)癫痫发作、(6)严重喘息或呼吸困难、(7)急性心肌梗塞或心力衰竭或严重心律失常、(8)高血压危象、高血压脑 病、脑血管意外、(9)非因意外伤害所导致的出血、(10)急性尿潴留、(11)非因意外伤害所导致的、突发性的眼睛红肿、疼痛或视力障碍等，因中暑和食物中毒引起的人身伤亡损失。</td>
+                    </tr>
+                    <tr>
+                        <td class="" style="width:20%">急性病医疗</td>
+                      <td style="width:30%">1万</td>
+                      <td style="width:50%">	被保险人在活动期间因突发急性疾病产生的合理就诊费用，0免赔（包含自费项，90天内），100%赔付，第三方（包括社保、其他商业保险等）已赔付的除外，（急性病的范围同上）</td>
+                    </tr>
+                    <tr>
+                        <td class="" style="width:20%">意外住院津贴</td>
+                      <td style="width:30%">100元/天</td>
+                      <td style="width:50%">活动期间，因意外、高风险运动意外就医，并在保险有效期内开始住院可获赔，以医疗记载天数为准，每次事故不超过90天</td>
+                    </tr>
+                    <tr>
+                        <td class="" style="width:20%">意外骨折津贴</td>
+                      <td style="width:30%">50元/天</td>
+                      <td style="width:50%">活动期间，因意外、高风险意外导致骨折可获赔，根据条款中的骨折给付表给付（或可查看问答）（与意外住院津贴可以叠加，如果有2处及以上多处骨折者，骨折津贴给付以金额高者为准）</td>
+                    </tr>
+                    <tr>
+                        <td class="" style="width:20%">救护车费用</td>
+                      <td style="width:30%">3000元</td>
+                      <td style="width:50%">因意外产生的合理的救护车费用</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <table class="table-main">
+                  <tbody>
+                    <tr>
+                          <td rowspan="4" style="width:20%">项目分类</td>
+                      <td style="width:30%">承保常规项目</td>
+                      <td style="width:50%">场地地面拓展训练（在地面进行的拓展项目：挑战150秒、急速60秒、七巧板、孤岛求生、团建大厨房等）；<br>
+场地中低空拓展训练（高度不超过5米的中、低空拓展项目：如毕业墙、穿越电网、信任背摔等）；<br>
+场地高空拓展训练（高度不超过15米的高空拓展项目：如高空抓杠、断桥、合力过桥、攀岩等）；<br>
+场地主题类活动（趣味运动会、员工家庭日、彩虹跑、真人CS射击游戏、大型充气道具比赛、密室逃脱等活动） ；<br>
+室内拓展训练项目；室内沙盘模拟项目；常规会议和培训活动；<br>
+其他未列明但风险等同以上项目的活动
+
+</td>
+                    </tr>
+                    <tr>
+                      <td style="width:30%">承保高风险项目</td>
+                      <td style="width:50%">场地经典户外运动（场地滑雪，场地滑冰，场地攀岩，场地攀冰、场地速降等）<br>
+场地军事化训练（军训、军事主题拓展训练、魔鬼训练、拉练、野外生存等）<br>
+徒步穿越（沙漠、戈壁、古道、原始森林、戈壁、景点、森林公园徒步穿越）；<br>
+定向活动（山地定向，景区定向，城市定向，定向寻宝）；<br>
+速降活动（高度不超过50米的天然岩体的速降、水坝速降、高空速降）；<br>
+体育活动（如：乒乓球、羽毛球等趣味比赛、健步走和跑步等非职业运动员参加的活动），身体对抗性活动除外，如篮球、足球；<br>
+自驾车旅行，越野车穿越活动；<br>
+水上活动（漂流、溯溪、皮划艇、龙舟、帆船、浆板、摩托艇、汽艇等水上运动）；<br>
+潜水（下潜深度不超过18米）；登山活动;<br>
+其他未列明但风险等同以上项目的活动
+</td>
+                    </tr>
+                    <tr>
+                      <td style="width:30%">承保高风险运动</td>
+                      <td style="width:50%">潜水、滑雪、滑水、热气球、蹦极、冲浪、风筝冲浪、攀岩、速降、自行车、骑马、登山（海拔6000米以下）</td>
+                    </tr>
+                    <tr>
+                      <td style="width:30%">不保项目</td>
+                      <td style="width:50%">本保险不承保专业赛事、职业体育赛事或任何设有奖金或报酬的体育运动（如：马拉松）。<br>
+本保险不承保的体育项目：手球、篮球、足球、排球、冰球、橄榄球、曲棍球、水球、马球、板球、垒球，马拉松 、3000米以上（含）障碍跑、20公里以上（含）竞走、撑竿跳高，和任何非拓展企业组织的体育项目。</td>
+                    </tr>
+                  </tbody>
+                </table>
+        </div>
+      </div>
+      <div class="insurance_info_main2_content" style="display:block">
+        <div class="inner">
+                  <p class="title green bold"></p>
+                <table class="table-main">
+                    <thead>
+                    <tr>
+                      <td style="width:20%">保险利益</td>
+                      <td style="width:30%">保险金额</td>
+                      <td style="width:50%">保险范围</td>
+                    </tr>
+                    </thead>
+                  <tbody>
+                    <tr>
+                        <td class="" style="width:20%">意外身故</td>
+                      <td style="width:30%">50万</td>
+                      <td style="width:50%">被保险人在1-3类风险项目中遭受意外伤害事故，并自事故发生之日起180日内因该事故身故</td>
+                    </tr>
+                    <tr>
+                        <td class="" style="width:20%">意外伤残</td>
+                      <td style="width:30%">50万</td>
+                      <td style="width:50%">被保险人在1-3类风险项目中遭受意外伤害事故，并鉴定伤残等级，按比例赔付</td>
+                    </tr>
+                    <tr>
+                        <td class="" style="width:20%">意外医疗</td>
+                      <td style="width:30%">8万</td>
+                      <td style="width:50%">被保险人在1-3类风险项目中因意外伤害事故产生的合理就诊费用（包含自费项，180天内），0免赔，100%赔付，第三方（包括社保、其他商业保险等）已赔付的除外，镶牙、祛疤、辅助器材、康复训练等费用不在责任范围内</td>
+                    </tr>
+                    <tr>
+                        <td class="" style="width:20%">高风险运动意外身故</td>
+                      <td style="width:30%">50万</td>
+                      <td style="width:50%">扩展承保高风险项目的意外身故，与一般意外伤害保额不叠加</td>
+                    </tr>
+                    <tr>
+                        <td class="" style="width:20%">高风险运动意外伤残</td>
+                      <td style="width:30%">50万</td>
+                      <td style="width:50%">扩展承保高风险项目的意外伤残，与一般意外伤害保额不叠加</td>
+                    </tr>
+                    <tr>
+                        <td class="" style="width:20%">高风险意外医疗</td>
+                      <td style="width:30%">8万</td>
+                      <td style="width:50%">扩展承保高风险项目的意外医疗，与一般意外伤害保额不叠加</td>
+                    </tr>
+                    <tr>
+                        <td class="" style="width:20%">急性病身故</td>
+                      <td style="width:30%">10万</td>
+                      <td style="width:50%">保险期间内，被保险人突发急性病，并自发病之日起3日内因该急性病导致身故的，保险人按急性病身故保险金给付身故保险金。急性病的范围如下：(1)高热（成人达到38.5摄氏度或以上，小儿达到39摄氏度或以上）、(2)急性阑尾炎或剧烈呕吐或严重腹泻、(3)休克或昏迷、 (4)高原反应、(5)癫痫发作、(6)严重喘息或呼吸困难、(7)急性心肌梗塞或心力衰竭或严重心律失常、(8)高血压危象、高血压脑 病、脑血管意外、(9)非因意外伤害所导致的出血、(10)急性尿潴留、(11)非因意外伤害所导致的、突发性的眼睛红肿、疼痛或视力障碍等，因中暑和食物中毒引起的人身伤亡损失。</td>
+                    </tr>
+                    <tr>
+                        <td class="" style="width:20%">急性病医疗</td>
+                      <td style="width:30%">1万</td>
+                      <td style="width:50%">被保险人在活动期间因突发急性疾病产生的合理就诊费用，0免赔（包含自费项，90天内），100%赔付，第三方（包括社保、其他商业保险等）已赔付的除外，（急性病的范围同上）</td>
+                    </tr>
+                    <tr>
+                        <td class="" style="width:20%">意外住院津贴</td>
+                      <td style="width:30%">150元/天</td>
+                      <td style="width:50%">活动期间，因意外、高风险运动意外就医，并在保险有效期内开始住院可获赔，以医疗记载天数为准，每次事故不超过90天</td>
+                    </tr>
+                    <tr>
+                        <td class="" style="width:20%">意外骨折津贴</td>
+                      <td style="width:30%">75/天</td>
+                      <td style="width:50%">活动期间，因意外、高风险意外导致骨折可获赔，根据条款中的骨折给付表给付（或可查看问答）（与意外住院津贴可以叠加，如果有2处及以上多处骨折者，骨折津贴给付以金额高者为准）</td>
+                    </tr>
+                    <tr>
+                        <td class="" style="width:20%">救护车费用</td>
+                      <td style="width:30%">3000元</td>
+                      <td style="width:50%">因意外产生的合理的救护车费用</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <table class="table-main">
+                  <tbody>
+                    <tr>
+                          <td rowspan="4" style="width:20%">项目分类</td>
+                      <td style="width:30%">承保常规项目</td>
+                      <td style="width:50%">场地地面拓展训练（在地面进行的拓展项目：挑战150秒、急速60秒、七巧板、孤岛求生、团建大厨房等）；<br>
+场地中低空拓展训练（高度不超过5米的中、低空拓展项目：如毕业墙、穿越电网、信任背摔等）；<br>
+场地高空拓展训练（高度不超过15米的高空拓展项目：如高空抓杠、断桥、合力过桥、攀岩等）；<br>
+场地主题类活动（趣味运动会、员工家庭日、彩虹跑、真人CS射击游戏、大型充气道具比赛、密室逃脱等活动） ；<br>
+室内拓展训练项目；室内沙盘模拟项目；常规会议和培训活动；<br>
+其他未列明但风险等同以上项目的活动
+
+</td>
+                    </tr>
+                    <tr>
+                      <td style="width:30%">承保高风险项目</td>
+                      <td style="width:50%">场地经典户外运动（场地滑雪，场地滑冰，场地攀岩，场地攀冰、场地速降等）<br>
+场地军事化训练（军训、军事主题拓展训练、魔鬼训练、拉练、野外生存等）<br>
+徒步穿越（沙漠、戈壁、古道、原始森林、戈壁、景点、森林公园徒步穿越）；<br>
+定向活动（山地定向，景区定向，城市定向，定向寻宝）；<br>
+速降活动（高度不超过50米的天然岩体的速降、水坝速降、高空速降）；<br>
+体育活动（如：乒乓球、羽毛球等趣味比赛、健步走和跑步等非职业运动员参加的活动），身体对抗性活动除外，如篮球、足球；<br>
+自驾车旅行，越野车穿越活动；<br>
+水上活动（漂流、溯溪、皮划艇、龙舟、帆船、浆板、摩托艇、汽艇等水上运动）；<br>
+潜水（下潜深度不超过18米）；登山活动;<br>
+其他未列明但风险等同以上项目的活动
+</td>
+                    </tr>
+                    <tr>
+                      <td style="width:30%">承保高风险运动</td>
+                      <td style="width:50%">潜水、滑雪、滑水、热气球、蹦极、冲浪、风筝冲浪、攀岩、速降、自行车、骑马、登山（海拔6000米以下）</td>
+                    </tr>
+                    <tr>
+                      <td style="width:30%">不保项目</td>
+                      <td style="width:50%">本保险不承保专业赛事、职业体育赛事或任何设有奖金或报酬的体育运动（如：马拉松）。<br>
+本保险不承保的体育项目：手球、篮球、足球、排球、冰球、橄榄球、曲棍球、水球、马球、板球、垒球，马拉松 、3000米以上（含）障碍跑、20公里以上（含）竞走、撑竿跳高，和任何非拓展企业组织的体育项目。</td>
+                    </tr>
+                  </tbody>
+                </table>
+        </div>
+      </div>
+    <div style="height: 60px"></div>
+  </div>
+
+
+  </div>
+
+
+      <div class="tips top-inner" style="display:block">
+            <p class="green" style="font-size:16px;">备注</p>
+                <p>1：团队活动参保该方案，必需全员记名投保。</p>
+                <p>2：受伤人员均应在二级以上（含二级）医院或保险人认可的医疗机构就诊（出险当日急诊放宽至一级公立医院），并且出具正规医疗票据。</p>
+                <p>3：首次就医需在出险后5天内（出险当日算第1天），且需要出具延迟就医证明（复诊除外）。在保险期内开始住院，可获赔住院津贴。</p>
+                <p>4：对于在北京市平谷区所有医院就诊的所有赔案不予赔偿。</p>
+                <p>5：人身伤残等级标准参照《人身保险伤残评定标准及代码》（标准编号为JR/T 0083－2013）</p>
+      </div>
+      <div class="tips top-inner" style="display:none">
+            <p class="green" style="font-size:16px;">备注</p>
+                <p>1：团队活动参保该方案，必需全员记名投保。</p>
+                <p>2：受伤人员均应在二级以上（含二级）医院或保险人认可的医疗机构就诊（出险当日急诊放宽至一级公立医院），并且出具正规医疗票据。</p>
+                <p>3：首次就医需在出险后5天内（出险当日算第1天），且需要出具延迟就医证明（复诊除外）。在保险期内开始住院，可获赔住院津贴。</p>
+                <p>4：对于在北京市平谷区所有医院就诊的所有赔案不予赔偿。</p>
+                <p>5：人身伤残等级标准参照《人身保险伤残评定标准及代码》（标准编号为JR/T 0083－2013）</p>
+      </div>
+      <div class="tips top-inner" style="display:none">
+            <p class="green" style="font-size:16px;">备注</p>
+                <p>1：团队活动参保该方案，必需全员记名投保。</p>
+                <p>2：受伤人员均应在二级以上（含二级）医院或保险人认可的医疗机构就诊（出险当日急诊放宽至一级公立医院），并且出具正规医疗票据。</p>
+                <p>3：首次就医需在出险后5天内（出险当日算第1天），且需要出具延迟就医证明（复诊除外）。在保险期内开始住院，可获赔住院津贴。</p>
+                <p>4：对于在北京市平谷区所有医院就诊的所有赔案不予赔偿。</p>
+                <p>5：人身伤残等级标准参照《人身保险伤残评定标准及代码》（标准编号为JR/T 0083－2013）</p>
+      </div>
+      <div class="tips top-inner" style="display:none">
+            <p class="green" style="font-size:16px;">备注</p>
+                <p>1：团队活动参保该方案，必需全员记名投保。</p>
+                <p>2：受伤人员均应在二级以上（含二级）医院或保险人认可的医疗机构就诊（出险当日急诊放宽至一级公立医院），并且出具正规医疗票据。</p>
+                <p>3：首次就医需在出险后5天内（出险当日算第1天），且需要出具延迟就医证明（复诊除外）。在保险期内开始住院，可获赔住院津贴。</p>
+                <p>4：对于在北京市平谷区所有医院就诊的所有赔案不予赔偿。</p>
+                <p>5：人身伤残等级标准参照《人身保险伤残评定标准及代码》（标准编号为JR/T 0083－2013）</p>
+      </div>
+
+
+
+</div>
+
+<div class="insurance_guize">
+  <div class="insurance_title">
+    <div class="top-inner">
+      <span>投保流程及规则</span>
+    </div>
+  </div>
+  <div class="insurance_guize_main top-inner">
+    <p class="green title">投保流程</p>
+    <div class="insurance_liucheng_detail">
+      <div style="height:54px;"></div>
+      <p>
+        <span style="padding-left:160px;float:left;">在线完善资料</span>
+        <span style="padding-left:200px;float:left;">支付保费</span>
+        <span style="padding-left:213px;float:left;">投保完成</span>
+      <div class="clear"></div>
+      </p>
+    </div>
+    <p class="green title">投保规则</p>
+    <ul>
+        <li>1人起保</li>
+        <li>按天超短期</li>
+        <li>预付费且一次付清</li>
+        <li>最早付费后2小时生效</li>
+        <li>生效前可退可改</li>
+    </ul>
+    <div class="clear"></div>
+
+      <p class="green title">单证模板</p>
+      <ul>
+          <li><a target="_blank" href="/api/download/户外活动险保单模板.pdf">电子保单模板</a></li>
+          <li><a target="_blank" href="/api/download/户外活动险发票模板.pdf">电子发票模板</a></li>
+      </ul>
+      <div class="clear"></div>
+  </div>
+</div>
+
+<div class="insurance_case">
+  <div class="insurance_title">
+    <div class="top-inner">
+      <span>理赔流程</span>
+    </div>
+  </div>
+  <div class="insurance_case_main top-inner">
+    <div class="insurance_case_box insurance_case_box1">
+    </div>
+    <div class="insurance_case_box insurance_case_box2">
+    </div>
+    <div class="insurance_case_box insurance_case_box3">
+    </div>
+    <div class="insurance_case_box insurance_case_box4">
+    </div>
+
+    <div class="clear"></div>
+
+
+  </div>
+</div>
+
+
+  <div class="insurance_faq">
+    <div class="insurance_title">
+      <div class="top-inner">
+        <span>常见问题</span>
+      </div>
+    </div>
+    <div class="insurance_faq_main top-inner">
+        <p class="green question bold">问：可以保职业赛事么？</p>
+        <p>答：职业性联赛不属于保险责任范围。</p>
+        <p class="green question bold">问：1人是否可以投保？</p>
+        <p>答：可以的。</p>
+        <p class="green question bold">问：非出险当日就医，是否赔付？</p>
+        <p>答：如当地条件限制，无法在保险周期内就医，限五天内到二级或三级公立医院就医，且需出具相关证明材料，由保险公司审核通过后，可获赔偿。</p>
+        <p class="green question bold">问：购买后是否可退，如何更改信息？</p>
+        <p>答：保单生效前可申请退单并退款，但要求账号必需绑定手机号码。退单后更正信息后重新投保即可。</p>
+        <p class="green question bold">问：出险后，我该怎么做？</p>
+        <p>答：48小时内在“用户中心/我的理赔”里填写备案信息，专属理赔员对接出险联系人，理赔进度实时跟进，理赔咨询可拨400-11-78360。</p>
+        <p class="green question bold">问：出险后，就诊医院是否有限制？</p>
+        <p>答：出险请至二级及以上公立医院就诊；出险当日首次就诊，限急诊，限制放宽至一级公立医院。对于在北京市平谷区所有医院就诊的所有赔案不予赔偿。</p>
+        <p class="green question bold">问：理赔何时到账？</p>
+        <p>答：所有医疗单据经保险公司审核无误后，14个工作日赔偿金到出险人员本人账户。</p>
+        <p class="green question bold">问：什么是理赔托管？</p>
+        <p>答：包括：协助审核医疗票据、报告、申请表等理赔资料；与保险公司对接，争取被保险人应得的保险利益等。</p>
+        <p class="green question bold">问：哪些急性病在承保范围内？</p>
+        <p>答：常见的突然发生、不及时救治将危及生命安危的急性疾病有（以理赔医生审核为准）： 1、高热（成人达到38.5摄氏度或以上，小儿达到39摄氏度或以上）；2、急性食物中毒、急性胃穿孔、急性十二指肠穿孔、急性胃扩张；3、休克或昏迷、高原反应；4、癫痫发作；5、中暑、严重喘息或呼吸困难；6、急性心肌梗塞或心力衰竭或严重心律失常、冠心病、缺血性心脏病、高血压危象、高血压脑病、脑血管意外；7、非因意外伤害所导致的出血、脑出血、内脏出血、急性脑膜炎；8、急性尿潴留；9、非因意外伤害所导致的、突发性的眼睛红肿、疼痛或视力障碍，蛛网膜下腔出血，10、急性阑尾炎、急性腹膜炎、急性胰腺炎、性胆管炎、急性胆囊炎。</p>
+        <p class="green question bold">问：户外活动险是一种什么样的产品？</p>
+        <p>答：是一款由华泰保险推出，由企保360平台提供服务的保险产品，承保近百种常见户外拓展项目及14种高风险户外活动，活动中的意外伤害、急性病均在保险范围内，其中医疗无免赔，并含有特色骨折津贴。 本保险承保外籍人士在境内参加拓展活动。</p>
+        <p class="green question bold">问：是否提供增值税专用发票？</p>
+        <p>答：不提供，此产品仅提供增值税普通发票电子发票。</p>
+        <p class="green question bold">问：可以在户外、拓展活动当天投保吗？</p>
+        <p>答：临时增加人员的情况下，活动当天12点前可投保（2小时后起保），已出险的情况除外。</p>
+        <p class="green question bold">问：哪些医疗费用可以理赔？</p>
+        <p>答：社保范围内的费用以及自费药、自费检查费可递交至保险公司申请理赔。统筹支付、附加支付和医疗辅助器具的相关费用，保险公司不予赔付。建议理赔备案时对此做详细咨询：400-11-78360。</p>
+        <p class="green question bold">问：急性病身故是指什么情形？</p>
+        <p>答：在保险期间内被保险人突发急性病，并自发病之日起72小时内因该急性病导致身故的(含猝死)在保险责任范围之内。既往症，主动放弃治疗等特殊情况除外。</p>
+        <p class="green question bold">问：骨折津贴怎么赔偿</p>
+        <p>答：以诊断证明材料的结果为准，根据骨折部位和骨折程度，按照骨折给付表给付。骨折类别（完全折断不完全折断骨裂）1、鼻骨、眶骨（14日、7日、4日），2、掌骨、指骨（14日、7日、4日），3、跖骨、趾骨（14日、7日、4日），4、下颌骨（齿槽医疗除外）（20日、10日、5日），5、肋骨（20日、10日、5日），6、锁骨（28日、14日、7日），7、桡骨（28日、14日、7日），8、髌骨（28日、14日、7日），9、肩胛骨（28日、17日、9日），10、椎骨（包括胸椎、腰椎及尾骨）（40日、20日、10日），11、骨盆（包括髂骨、耻骨、坐骨）（40日、20日、10日），12、颅骨（50日、25日、13日），13、肱骨（40日、20日、10日），14、桡骨及尺骨（40日、20日、10日），15、腕骨（一手或双手）（40日、20日、10日），16、胫骨或腓骨（40日、20日、10日），17、踝骨（一足或双足（40日、20日、10日），18、股骨干（50日、25日、13日），19、胫骨及腓骨（50日、25日、13日），20、股骨颈（60日、30日、15日）。</p>
+        <p class="green question bold">问：如何理解“意外伤害事故是指外来的、突发的、非本意的、非疾病的使身体受到伤害的客观事件。”</p>
+        <p>答：1、身体受到外部原因造成的事故伤害，意外伤害的对象必须是被保险人的身体所属部位，且伤害事实成立。2、突发的，指在瞬间造成的事故。而职业病是由于伤害逐步形成的，而且是可以预见和预防的，不属于意外事故。3、意外发生的，指被保险人未预料到和非本意的事故。4、非疾病的，疾病所致伤害不属于意外事故，疾病虽不可预料，但它是人体内部生理故障或新陈代谢的结果。如脑溢血发作不省人事。</p>
+    </div>
+  </div>
+</div>
+
+{%  endblock  %}
+
+     {% block extrajs %}
+<script type="text/javascript">
+var len=$('.insurance_faq_main p').length
+if(len>6){
+  $('.insurance_faq_main').append('<a id="faq_btn" href="javascript:;" class="sum4_show_hide">查看更多 >>></a>')
+  $('.insurance_faq_main').append('<div class="clear"></div>')
+  $('.insurance_faq_main p').each(function(i){
+    if(i>=6){
+      $('.insurance_faq_main p').eq(i).hide()
+    }
+  })
+  var tap=true
+  $('#faq_btn').click(function(){
+    if(tap){
+      $('.insurance_faq_main p').each(function(i){
+        if(i>=6){
+          $('.insurance_faq_main p').eq(i).slideDown(200)
+        }
+      })
+      $(this).html('收起 <<<')
+      tap=false
+    }else{
+      $('.insurance_faq_main p').each(function(i){
+        if(i>=6){
+          $('.insurance_faq_main p').eq(i).slideUp(200)
+        }
+      })
+      $(this).html('查看更多 >>>')
+      tap=true
+    }
+  })
+}
+</script>
+
+
+<script type="text/javascript">
+  function reload_feature() {
+
+  }
+
+  $(document).ready(function(){
+    $("#dialog_notice").modal("show");
+  });
+  insurance_bought_type
+</script>
+
+  <script type="text/javascript">
+
+$(function(){
+  var dis=170
+  var top=$(window).scrollTop()
+  //console.log(top)
+  if(top>dis){
+    $('.insurance_bought_inner').addClass('fixed')
+  }else{
+    $('.insurance_bought_inner').removeClass('fixed')
+  }
+  $(window).scroll(function(){
+    var top=$(window).scrollTop()
+    //console.log(top)
+    if(top>dis){
+      $('.insurance_bought_inner').addClass('fixed')
+    }else{
+      $('.insurance_bought_inner').removeClass('fixed')
+    }
+  })
+})
+
+$(function(){
+  $('.insurance_info_main2_top ul li').each(function(i){
+    $(this).click(function(){
+      $(this).addClass('active').siblings().removeClass('active')
+      $('.insurance_info_main2_content').hide()
+      $('.insurance_info_main2_content').eq(i).show()
+      $('.tips').hide();
+      $('.tips').eq(i).show();
+    })
+  })
+})
+
+$(function(){
+  $('.insurance_infos_main .type').each(function(){
+    //if(!$(this).hasClass('active')){
+      $(this).hover(function(){
+        $(this).addClass('hover')
+      },function(){
+        $(this).removeClass('hover')
+      })
+    //}
+  })
+  $('.insurance_infos_main .category ul li .help').each(function(i){
+    $(this).css({'z-index':(15-i)})
+    $(this).hover(function(){
+      $('.text',this).show()
+    },function(){
+      $('.text',this).hide()
+    })
+  })
+})
+
+function calc_insurance_price(){
+
+  var lis = $('.insurance_infos_filter_box ul li.active');
+
+  var ins_data = $('#current_price').attr('data-insurance');
+//reload_selection(ins);
+
+  var hash_req = {}
+  for (var i=0; i<lis.length; i++) {
+    var mode = lis.eq(i).attr('data-mode');
+    if (mode == 'false') {
+      $('#current_price').text('0.00');
+      return;
+    }
+
+    var least = lis.eq(i).attr('data-least');
+
+    var quote_option = lis.eq(i);
+    var quote_group = quote_option.closest('ul');
+    var code = quote_group.attr('data-code');
+
+    hash_req[code] = least;
+  }
+  console.log("king");
+  var plan = $('.insurance_bought_type a.active')
+  var d = plan.attr('data-remote')
+  if (d == 'false'){
+    $('#current_price').text('0.00');
+      return;
+  }
+  var index = plan.attr('data-insurance')
+  hash_req["plan"] = index
+  console.log(hash_req);
+  json_data = JSON.stringify(hash_req);
+  console.log(hash_req);
+
+  ajax_insurance_quote(json_data);
+
+//$('#current_price').text(price.toFixed(2));
+}
+
+function ajax_insurance_quote(value) {
+  var url = $('#insurance_quote_set').attr('data-url');
+  console.log(url);
+  console.log(value);
+
+  $.post({
+    type: "POST",
+    url: url,
+    data: value,
+    dataType: "json",
+    success: function(resp){
+      console.log(resp);
+      if (resp.code == '0000') {
+        var price = parseFloat(resp.data.price);
+        $('#current_price').text(price.toFixed(2));
+      } else {
+        $('#current_price').text(resp.message);
+      }
+    }
+  })
+}
+
+function change_insurance_url(){
+  var ins_data = $('#current_price').attr('data-insurance');
+
+  var url_data = window.location.href.split('?');
+  var ini_data = url_data[0].split('../index.html');
+
+  ini_data[ini_data.length-1] = ins_data;
+  var info = ini_data.join('../index.html');
+
+  url_data[0] = info;
+  var path = url_data.join('?');
+
+  history.replaceState(null, null, path);
+}
+
+$(function(){
+  $('.insurance_infos_filter_box ul li').each(function(){
+    $(this).click(function(){
+      $(this).addClass('active').siblings().removeClass('active');
+      calc_insurance_price();
+    })
+  })
+})
+
+$(function(){
+  $('.insurance_bought_type a').each(function(i){
+    $(this).click(function(){
+
+      var ins_data = $(this).attr('data-insurance');
+      console.log(ins_data);
+      $('#current_price').attr('data-insurance', ins_data);
+
+      if ($('#buy_link').length > 0) {
+        var href_data = $('#buy_link').attr('href').split('=')[0] + "=" + ins_data;
+        $('#buy_link').attr('href', href_data);
+      }
+
+      if ($('#upgrade_btn_id').length > 0) {
+        var upgrade_id = $(this).attr('data-upgrade');
+        if (upgrade_id != "") {
+          var href_data = "/insurances/" + upgrade_id;
+          $('#upgrade_btn_id').attr('href', href_data);
+        }
+      }
+
+      if ($('#claim_link').length > 0) {
+        if($('#claim_link').attr('href').indexOf('officeapps') == -1){
+            var claim_data = $('#claim_link').attr('href').split('../index.html');
+            claim_data[claim_data.length-2] = ins_data;
+            $('#claim_link').attr('href', claim_data.join('../index.html'));
+        }
+      }
+
+      $(this).addClass('active').siblings().removeClass('active');
+      $('.insurance_infos_main .type').eq(i).addClass('active').siblings().removeClass('active');
+
+      $('.insurance_info_main2_top ul li').eq(i).addClass('active').siblings().removeClass('active');
+      $('.insurance_info_main2_content').hide();
+      $('.insurance_info_main2_content').eq(i).show();
+      $('.tips').hide();
+      $('.tips').eq(i).show();
+
+//    reload_feature();
+      calc_insurance_price();
+      change_insurance_url();
+
+      var window_top = $(window).scrollTop();
+      var infos_top = $('.insurance_infos').offset().top - 40;
+
+      if (Math.abs(window_top - infos_top) <= 50) {
+        $('html,body').animate({scrollTop: infos_top}, 0);
+      } else {
+        $('html,body').animate({scrollTop: infos_top}, 800);
+      }
+    })
+  })
+  $('.insurance_infos_main .type').each(function(i){
+    $(this).click(function(){
+      var ins_data = $('.insurance_bought_type a').eq(i).attr('data-insurance');
+      var ins_id = "#insurance" + ins_data;
+      $(ins_id).click();
+
+      return false;
+
+      /*
+      $('#current_price').attr('data-insurance', ins_data);
+
+      if ($('#buy_link').length > 0) {
+        var href_data = $('#buy_link').attr('href').split('=')[0] + "=" + ins_data;
+        $('#buy_link').attr('href', href_data);
+      }
+
+      if($('#claim_link').attr('href').indexOf('officeapps') == -1) {
+          var claim_data = $('#claim_link').attr('href').split('/');
+          claim_data[claim_data.length - 2] = ins_data;
+          $('#claim_link').attr('href', claim_data.join('/'));
+      }
+
+      $(this).addClass('active').siblings().removeClass('active');
+      $('.insurance_bought_type a').eq(i).addClass('active').siblings().removeClass('active');
+
+      reload_feature();
+      calc_insurance_price();
+      change_insurance_url();
+      */
+    })
+  })
+  $('.insurance_info_main2_top ul li').each(function(i){
+    $(this).click(function(){
+      var ins_data = $('.insurance_bought_type a').eq(i).attr('data-insurance');
+      var ins_id = "#insurance" + ins_data;
+
+      $(ins_id).click();
+
+      return false;
+    })
+  })
+})
+</script>
+
+<script src="{% static "css/popper.min.js" %}" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="{% static "css/bootstrap.min.js" %}" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+{% endblock %}
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <!--
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  -->
+
+
+
+
+</body>
+
+
+<!-- Mirrored from qibao360.com/insurances/125 by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 24 Mar 2019 08:43:30 GMT -->
+</html>

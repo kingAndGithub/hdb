@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>宝365</title>
+    <link rel="stylesheet" href="{% static "css/custom.css" %}">
+    <script src="{% static "third_part/js/datatables/js/jquery.js" %}"></script>
+    <style type="text/css">
+        table {
+            table-layout: fixed;
+        }
+
+        table td div {
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .banner ul li {
+            width: 100%;
+            height: 340px;
+            position: relative;
+            min-width: 1150px;
+        }
+
+        .sigma-content {
+            margin: 100px;
+            text-align: center;
+            background-color: #fff;
+        }
+
+        .sigma-middle-line:before {
+            content: '';
+            display: block;
+            height: 1px;
+            width: 100%;
+            background-color: #999; /*颜色需与主题大背景色一致*/
+            position: relative;
+            top: 10px; /*调节线高*/
+            left: 0;
+        }
+
+        .sigma-line-text {
+            display: inline-block;
+            background: #fff;
+            padding: 0 18px 0 18px;
+            position: relative;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .hover_in{color:red;}
+        .nav .on .subclass{
+            background: red;
+        }
+    </style>
+    {% block extracss %}{% endblock %}
+</head>
+<body>
+
+<div class="header-wrap">
+    <div class="top-inner qibao-logo">
+        <a href="/">
+            <img style="margin-top:8px" src="{% static "images/qibao-logo.png" %}" alt="Qibao logo">
+        </a>
+        <div class="user-opration right" style="display: inline-block; float: right;margin-right: 20px;">
+      <span>
+          <a href="/users/sign_in">登录</a>
+          或 <a href="/users/tel_sign_up">免费注册</a>
+      </span>
+            <span>
+          <a class="top_header_account" href="/users/sign_in">用户中心</a>
+      </span>
+            <span><a href="/help/how_to_insure">服务指南</a></span>
+            <span style="border:0"><a href="/search">保单查询</a></span>
+        </div>
+    </div>
+</div>
+
+<div id="pulldown" class="demo nav">
+    <nav class="nav_pull vertical" >
+        <ul>
+            <li class="on" ><a href="#" class="subclass" style="border-right-width: 0px">首页</a>
+            </li>
+            <li><a href="#" class="subclass" style="border-right-width: 0px">企业保障</a>
+                <ul class="sub">
+                    <li>
+                    <a href="#" class="subli">
+                        <span>雇主保障计划</span>
+                    </a>
+                    </li>
+                </ul>
+            </li>
+            <li><a href="#" class="subclass" style="border-right-width: 0px">员工福利</a>
+                <ul class="sub">
+                    <li>
+                        <a  class="subli" href="#">
+                            <span>员工保障计划</span>
+
+                        </a></li>
+                    <li>
+                        <a href="#" class="subli">
+                            <span>团体税优健康险</span>
+
+                        </a></li>
+                </ul>
+            </li>
+
+            <li><a href="#" class="subclass" style="border-right-width: 0px">户外拓展</a>
+                <ul class="sub">
+                    <li>
+                    <a href="#" class="subli">
+                        <span>户外活动险</span>
+
+                    </a>
+                    </li>
+                </ul>
+                </li>
+            </ul>
+    </nav>
+</div>
+{% block content %}
+    {#<div>#}
+    {#    <ul>#}
+    {#      <li style="background:url(/static/images/0705_2.jpg) center no-repeat;display: inline-block;width: 100%;height: 340px;position: relative;min-width: 1150px;">#}
+    {#        <a href="/help/how_to_claim"></a>#}
+    {#      </li>#}
+    {#    </ul>#}
+    {#</div>#}
+    <div style="display: block">
+    <a href="/admin/">
+        <img src="{% static "images/0705_2.jpg" %}" style="width: 100%;height: 340px;">
+    </a>
+
+    </div>
+
+<div class="clear"></div>
+</div>
+
+<div class="index-wrap index-wrap1">
+      <div class="index-inner">
+
+        <div class="sigma-content">
+          <div class="sigma-middle-line">
+            <span class="sigma-line-text" >雇主责任险</span>
+              <span class="sigma-line-text" ><img alt="" src="{% static "images/ico-insurance1_7b6900753d.png" %}"></span>
+            <span class="sigma-line-text" >企业保障</span>
+          </div>
+        </div>
+
+            <div style="background: url(/static/images/index-huatai_1360d13024.jpg) no-repeat white;height: 400px;margin-left: 100px;">
+
+
+      </div>
+    </div>
+</div>
+{% endblock %}
+{% block modal %}
+{% endblock %}
+{% block fixed %}
+{% endblock %}
+<script src="{% static "third_part/jquery/jquery-1.12.3.min.js" %}"></script>
+<script type="text/javascript">
+   $(document).ready(function(){
+       $("nav>ul>li>ul>li").click(function(){
+          $(this).parent().parent().addClass("on").siblings().removeClass("on");
+        });
+    }
+
+
+   {#$(".subli").mouseover( //$(".table_list tr")选择table的class为table_list下的tr绑定事件#}
+   {# function () {#}
+   {#     $(this).addClass("hover_in"); //鼠标悬停时，改变li的class样式#}
+   {# }).mouseout(#}
+   {# function () {#}
+   {#     $(this).removeClass("hover_in"); //鼠标离开时，取消tr的class样式#}
+   {# })#}
+);
+</script>
+{% block extrajs %}{% endblock %}
+</body>
+</html>

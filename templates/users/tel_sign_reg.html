@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+{% load static %}
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Mirrored from qibao360.com/users/tel_sign_up by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 24 Mar 2019 08:42:20 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+  <title>企保360</title>
+
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="keywords" content="保险,互联网保险,户外拓展险,户外活动险,雇主责任险">
+  <meta name="description" content="企保360基于中小微企业投保难，投保成本高的现状，以大数据为手段，以互联网为核心整合优化保险资源，为中小微企业定制“碎片化”的互联网保险产品。">
+  <meta name="renderer" content="webkit">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <script type="text/javascript">
+var navi=window.navigator;
+if (navi.appName=='Microsoft Internet Explorer') {
+  var version =+ (navi.appVersion.split(';')[1].replace(/MSIE/i,''))
+    if (version < 10) {
+      window.location.replace('../browser.html')
+    }
+}
+</script>
+
+  <link rel="shortcut icon" type="image/x-icon" href="assets/favicon.ico" />
+  <link rel="stylesheet" media="all"
+        href="{% static "assets/application.css" %}" data-turbolinks-track="true" />
+  <script src="{% static "assets/application.js" %}" data-turbolinks-track="true"></script>
+  <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="woHlGtalBPd4zwLWSf2BRE3vRfLTbx4UUo5a0q7Yuejfo3r7ViKLdwVfCSWmIw8OEfzmGfMYdRgw+2jx9NYLbw==" />
+</head>
+
+<body>
+
+  <div class="top-inner qibao-logo">
+  <a href="../index.html">
+    <img alt="logo" src="{% static "images/qibao-logo.png" %}" style="margin-top:8px">
+  </a>
+</div>
+
+<div class="register-main">
+  <div class="top-inner">
+    <div class="register-title">
+      <a class="register-by-phone register-by active" href="tel_sign_reg.html">手机注册</a>
+      <div class="register-title-tips">
+        <span>已有账号</span>
+        请<a href="sign_in.html">登录</a>
+      </div>
+    </div>
+    <div class="register-main-box">
+      <form class="new_user" id="new_user" action="{% url "users:tel_sign_reg" %}" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="F8ZXv/oB1pkEq/fo9qVcZ6aw5yDqwn7CpAtyaANVg0MK5MheeoZZGXk7/BsZe9It+qNEy8q1Fc7GfkBLWVsxxA==" />
+        
+
+        <div class="register-form-group">
+          <input class="register-phone register-check-input" placeholder="手机号码" autofocus="autofocus" type="text" name="username" id="user_mobile" />
+{#          <a class="register-phone-btn" href="javascript:;">获取验证码</a>#}
+{#          <span class="register-error-tips">请填写11位手机号码</span>#}
+            <div class="clear"></div>
+        </div>
+
+{#        <div class="register-form-group">#}
+{#          <input class="register-code register-check-input" placeholder="请输入验证码" type="text" name="user[vcode]" id="user_vcode" />#}
+{#          <span class="register-error-tips">请填写4位验证码</span>#}
+{#          <div class="clear"></div>#}
+{#        </div>#}
+
+        <div class="register-form-group">
+          <input class="login-password register-check-input" minlength="8" placeholder="密码最短8位，包括字母、数字或者英文符号" type="password" name="password" id="user_password" />
+          <span class="register-error-tips">密码最少长度为8位</span>
+          <div class="clear"></div>
+        </div>
+
+        <div class="register-form-group">
+          <input class="register-identi-password register-check-input" minlength="8" placeholder="确认密码" type="password" name="user[password_confirmation]" id="user_password_confirmation" />
+          <span class="register-error-tips">密码不一致</span>
+          <div class="clear"></div>
+        </div>
+
+        <div class="register-form-group">
+          <input class="register-invite" placeholder="邀请码（选填）" type="text" name="user[ivcode]" id="user_ivcode" />
+          <span class="register-error-tips"></span>
+          <div class="clear"></div>
+        </div>
+
+        <div class="register-agree">
+          <input name="user[terms_of_service]" type="hidden" value="0" /><input type="checkbox" value="1" checked="checked" name="user[terms_of_service]" id="user_terms_of_service" />
+          <span>我同意接受条款</span>
+          <span class="register_checkbox_tips">请同意接受服务条款再注册</span>
+        </div>
+
+        <input type="submit" name="commit" value="注册" class="register-submit" data-disable-with="注册" />
+
+</form>    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+function requestMobileCode(tel, service) {
+  $.ajax({
+    url: "/mobile_codes/obtain",
+    type: "POST",
+    dataType: "json",
+    timeout: 0,
+    data: { mobile: tel, service: service },
+    success: function(data, textStatus) {
+    }
+  });
+}
+
+$(document).ready(function(){
+
+  var register_err=[];
+  $('.register-check-input').each(function(){
+    if($(this).val()==''){
+      var id=$(this).attr('id');
+      register_err[id]=false;
+    }
+  })
+
+  var check=$('#user_terms_of_service').is(':checked');
+  if(!check){
+    register_err['user_terms_of_service']=false;
+  }else{
+    register_err['user_terms_of_service']=true;
+  }
+
+  $('#user_mobile').on('keyup',function(){
+    var id=$(this).attr('id');
+    var val=$(this).val();
+    if (!/^1(\d){10}$/.test(val)) {
+      $(this).next().next().show();
+      register_err[id]=false;
+    } else {
+      $(this).next().next().hide();
+      register_err[id]=true;
+    }
+  })
+
+  {#$('#user_vcode').on('keyup',function(){#}
+  {#  var id=$(this).attr('id');#}
+  {#  var val=$(this).val();#}
+  {#  if (!/^(\w){4}$/.test(val)) {#}
+  {#    $(this).next().show();#}
+  {#    register_err[id]=false;#}
+  {#  } else {#}
+  {#    $(this).next().hide();#}
+  {#    register_err[id]=true;#}
+  {#  }#}
+  {#})#}
+
+  $('#user_password').on('keyup',function(){
+    var id=$(this).attr('id');
+    var len=$(this).val().length;
+    if(len<8){
+      $(this).next().show();
+      register_err[id]=false;
+    }else{
+      $(this).next().hide();
+      register_err[id]=true;
+    }
+  })
+
+  $('#user_password_confirmation').on('keyup',function(){
+    if(register_err['user_password']==true){
+      var id=$(this).attr('id');
+      var in_val=$(this).val();
+      var in_len=in_val.length;
+      var val=$('#user_password').val().substr(0,in_len);
+      var len=$('#user_password').val().length;
+      if(in_val==val){
+        if(in_len==len){
+          register_err[id]=true;
+          $(this).next().hide();
+        }else{//没输入完毕，判断不匹配，但不显示错误
+          register_err[id]=false;
+        }
+      }else{
+        $(this).next().show();
+        register_err[id]=false;
+      }
+    }
+  })
+
+  var tt=60;
+  var t=tt;
+  $('.register-phone-btn').click(function(e){
+    if(t==tt){
+      if (register_err['user_mobile'] == false) {
+        $('#user_mobile').focus();
+        $('#user_mobile').next().show();
+        return false;
+      }
+      requestMobileCode($('#user_mobile').val(), 'register');
+      alert('验证码已发送');
+      $(this).css({background:'rgb(150,150,150)'});
+      timer();
+      return true;
+    }
+  })
+
+  function timer(){
+    if(t==0){
+      clearTimeout(newCircle);
+      $('.register-phone-btn').css({background:'#302f2c'});
+      $('.register-phone-btn').html('验证码');
+      t=tt;
+      return false;
+    }
+    $('.register-phone-btn').html(t +'秒');
+    t--;
+    var newCircle=setTimeout(timer,1000);
+  }
+
+  $('#user_terms_of_service').on('click',function(){
+    var id=$(this).attr('id');
+    if($(this).is(':checked')){
+      register_err[id]=true;
+      $('.register_checkbox_tips').hide();
+    }else{
+      register_err[id]=false;
+      $('.register_checkbox_tips').show();
+    }
+  })
+
+  $('.register-submit').on('click',function(e){
+    for (var i in register_err){
+      if(register_err[i]==false){
+        if(i=='user_terms_of_service'){
+          $('.register_checkbox_tips').show();
+        }else{
+          $('#'+i).focus();
+          $('#'+i).next().show();
+        }
+        e.preventDefault();
+        break
+      }
+    }
+  })
+
+})
+</script>
+
+<div class="clear"></div>
+<div class="footer">
+  <div class="top-inner">
+    <p class="footer-copyright">
+    客服热线：400-11-78360，客服邮箱：service@qibao360.com<br>
+    备案号与版权信息：@2014 上海智多屏软件科技有限公司，All rights reserved<br>
+    备案号：沪公网安备 31010802001812号，<a target="_blank" href="http://www.miitbeian.gov.cn/">沪ICP备 14007660号-3</a>，保险网络销售资质提供商：中元保险经纪有限公司，rev: 2017-03-28
+  </p>
+  </div>
+</div>
+
+<style>
+  p.footer-copyright > a {
+    color: white;
+  }
+  p.footer-copyright > a:hover {
+    color: white;
+  }
+  p.footer-copyright > a:visited {
+    color: white;
+  }
+</style>
+
+
+
+</body>
+
+
+<!-- Mirrored from qibao360.com/users/tel_sign_up by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 24 Mar 2019 08:42:20 GMT -->
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+
+        <meta charset="UTF-8">
+
+        <title>二级菜单--垂直</title>
+
+        <style type="text/css">
+
+            body { font-family: Verdana; font-size: 12px; line-height: 1.5; }
+
+            img { border-style: none; }
+
+            a { color: #000; text-decoration: none; }
+
+            a:hover { color: #F00; }
+
+            #menu { width: 200px; border: 1px solid #CCC; border-bottom:none;margin:50px auto;text-align: center;}
+
+            #menu ul { list-style: none; margin: 0px; padding: 0px; }
+
+            #menu ul li { background: #289CFF;color: #fff; padding: 0px 10px; height: 26px; line-height: 26px; border-bottom: 1px solid #CCC; position:relative; }
+
+            #menu ul li ul { display:none; position: absolute; left: 200px; top: 0px; width:100px; border:1px solid #ccc; border-bottom:none; }
+
+            #menu ul li ul li{background-color: #21B4BB}
+
+            #menu ul li:hover{background-color: #21B4BB}
+
+            #menu ul li:hover ul { display:block;}
+
+        </style>
+
+    </head>
+
+    <body>
+
+        <div id="menu">
+
+            <ul>
+
+                <li>
+
+                    <a href="">菜单1</a>
+
+                    <ul>
+
+                        <li>
+
+                            <a href="#">菜单1</a>
+
+                        </li>
+
+                    </ul>
+
+                </li>
+
+                <li>
+
+                    <a href="#">菜单2</a>
+
+                    <ul>
+
+                        <li>
+
+                            <a href="#">菜单2</a>
+
+                        </li>
+
+                        <li>
+
+                            <a href="#">菜单2</a>
+
+                        </li>
+
+                    </ul>
+
+                </li>
+
+                <li>
+
+                    <a href="#">菜单3</a>
+
+                    <ul>
+
+                        <li>
+
+                            <a href="#">菜单3</a>
+
+                        </li>
+
+                        <li>
+
+                            <a href="#">菜单3</a>
+
+                        </li>
+
+                        <li>
+
+                            <a href="#">菜单3</a>
+
+                        </li>
+
+                    </ul>
+
+                </li>
+
+            </ul>
+
+        </div>
+
+    </body>
+
+</html>

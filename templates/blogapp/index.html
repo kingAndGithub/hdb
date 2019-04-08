@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+{% load static %}
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Mirrored from qibao360.com/ by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 24 Mar 2019 08:39:12 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+  <title>企保360</title>
+
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="keywords" content="保险,互联网保险,户外拓展险,户外活动险,雇主责任险">
+  <meta name="description" content="企保360基于中小微企业投保难，投保成本高的现状，以大数据为手段，以互联网为核心整合优化保险资源，为中小微企业定制“碎片化”的互联网保险产品。">
+  <meta name="renderer" content="webkit">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <script type="text/javascript">
+var navi=window.navigator;
+if (navi.appName=='Microsoft Internet Explorer') {
+  var version =+ (navi.appVersion.split(';')[1].replace(/MSIE/i,''))
+    if (version < 10) {
+      window.location.replace('browser.html')
+    }
+}
+</script>
+{% block extracss %}
+  <link rel="shortcut icon" type="image/x-icon" href="assets/favicon.ico" />
+  <link rel="stylesheet" media="all"
+        href="{% static "assets/application.css" %}" data-turbolinks-track="true" />
+  <script src="{% static "assets/application.js" %}" data-turbolinks-track="true"></script>
+  <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="Ea0uSr+xAQ1uKZu0VX5tjjCZS722CxeZ4l/q4WXTCHkMj7GrPzaOjRO5kEe6oOPEbIroVpZ8fJWAKtjCP926/g==" />
+    {% endblock %}
+<script>
+$(function() {
+    $( ".datepicker" ).datepicker();
+});
+</script>
+</head>
+
+<body>
+
+  <div class="header-wrap">
+  <div class="top-inner qibao-logo">
+    <a href="index.html">
+      <img style="margin-top:8px" src="{% static "images/qibao-logo.png" %}" alt="Qibao logo" />
+</a>    <div class="user-opration right">
+      {% if request.session.is_login %}
+                  <span><a href="/users/{{ request.session.user_id }}/info">{{ request.session.user_name }}</a></span>
+                  <span><a href="/users/sign_out">登出</a></span>
+              {% else %}
+                  <span>
+          <a href="/users/sign_in.html">登录</a>
+          或 <a href="/users/tel_sign_reg.html">免费注册</a>
+      </span>
+              {% endif %}
+
+      <span>
+          <a class="top_header_account" href="/users/sign_in.html">用户中心</a>
+      </span>
+        <span><a href="/help/how_to_insure.html">服务指南</a></span>
+        <span style="border:0"><a href="search.html">保单查询</a></span>
+    </div>
+  </div>
+</div>
+<div class="navigation-wrap">
+  <div class="top-inner navigation" >
+  <ul>
+    <li><a class="on" href="/index.html">首页</a></li>
+
+        <li>
+          <a class="">企业保障</a>
+          <ul>
+                <li>
+                  <a href="/insurances/employer/125">
+                   <span>雇主保障计划</span>
+                    
+</a>                </li>
+
+
+          </ul>
+        </li>
+        <li>
+          <a class="">员工福利</a>
+          <ul>
+                <li>
+                  <a href="/insurances/employee/129.html">
+                   <span>员工保障计划</span>
+                    
+</a>                </li>
+                <li>
+                  <a href="/insurances/team/7.html">
+                   <span>团体税优健康险</span>
+                    
+</a>                </li>
+
+
+          </ul>
+        </li>
+        <li>
+          <a class="">户外拓展</a>
+          <ul>
+                <li>
+                  <a href="/insurances/outer/121.html">
+                   <span>户外活动险</span>
+                    
+</a>                </li>
+
+
+          </ul>
+        </li>
+  </ul>
+  </div>
+  <div class="clear"></div>
+</div>
+
+<script type="text/javascript">
+$(function(){
+  //navigation
+  $('.navigation > ul > li').each(function(){
+
+    $(this).mouseenter(function(){
+      $(this).addClass('active');
+      $('ul',this).stop().slideDown(300);
+    }).mouseleave(function(){
+      $(this).removeClass('active');
+      $('ul',this).stop().slideUp(100);
+    });
+
+  })
+})
+
+</script>
+
+ {% block content %}
+
+
+
+<div class="banner">
+  <div class="banner-bd">
+    <ul>
+      <li style="background:url(/static/images/0705_2.jpg) center no-repeat">
+        <a href="help/how_to_claim.html"></a>
+      </li>
+    </ul>
+  </div>
+  <div class="banner-hd"><ul></ul></div>
+  <div class="banner-btn-prev banner-btn"></div>
+  <div class="banner-btn-next banner-btn"></div>
+</div>
+
+    <div class="index-wrap index-wrap1">
+      <div class="index-inner">
+        <div class="index-title index-title1" style="border-bottom: 1px solid #0fa54c">
+          <div class="index-title-center">
+            <span>雇主责任险</span>
+            <img alt="" style="width:31px;height:4px" src="{% static "images/ico-insurance1.png" %}" />
+            <span class="index-tips" style="color: #0fa54c">企业保障</span>
+          </div>
+        </div>
+
+            <div class="index-main index-main1 delay-load" data-imgbg="white url(/static/images/index-huatai.jpg) no-repeat">
+              
+              <div class="index-main-detail index-main-detail1 delay-load" data-imgbg="url(/static/images/index-main-detail1.jpg) no-repeat top"></div>
+                <span class="index-main-detail-price red"><span class="bold">¥<span style="font-size:40px;">12</span></span> 起</span>
+              <a class="btn-style index-btn-position1 color-green" style="background-color: #0fa54c" href="insurances/125.html">了解详情</a>
+            </div>
+
+      </div>
+    </div>
+    <div class="index-wrap index-wrap1">
+      <div class="index-inner">
+        <div class="index-title index-title1" style="border-bottom: 1px solid #e2a347">
+          <div class="index-title-center">
+            <span>团体意外险</span>
+            <img alt="" style="width:31px;height:4px" src="{% static "images/ico-insurance2.png" %}" />
+            <span class="index-tips" style="color: #e2a347">员工福利</span>
+          </div>
+        </div>
+
+            <div class="index-main index-main1 delay-load" data-imgbg="white url(/static/images/index_employee.jpg) no-repeat">
+              
+              <div class="index-main-detail index-main-detail1 delay-load" data-imgbg="url(/static/images/index_employee_detail.jpg) no-repeat top"></div>
+                <span class="index-main-detail-price red"><span class="bold">¥<span style="font-size:40px;">9</span></span> 起</span>
+              <a class="btn-style index-btn-position1 color-green" style="background-color: #e2a347" href="insurances/129.html">了解详情</a>
+            </div>
+            <div class="index-main index-main1 delay-load" data-imgbg="white url(/static/images/index_main_soochowlife.jpg) no-repeat">
+              
+              <div class="index-main-detail index-main-detail1 delay-load" data-imgbg="url(/static/images/index_main_detail_soochowlife.jpg) no-repeat top"></div>
+                <span class="index-main-detail-price red"><span class="bold">¥<span style="font-size:40px;">2400</span></span> 元/人/年</span>
+              <a class="btn-style index-btn-position1 color-green" style="background-color: #e2a347" href="insurances/7.html">了解详情</a>
+            </div>
+
+      </div>
+    </div>
+    <div class="index-wrap index-wrap1">
+      <div class="index-inner">
+        <div class="index-title index-title1" style="border-bottom: 1px solid #0374c6">
+          <div class="index-title-center">
+            <span>活动意外险</span>
+            <img alt="" style="width:31px;height:4px" src="{% static "images/ico-insurance3.png" %}" />
+            <span class="index-tips" style="color: #0374c6">户外拓展</span>
+          </div>
+        </div>
+
+            <div class="index-main index-main1 delay-load" data-imgbg="white url(/static/images/index_main_outdoor.jpg) no-repeat">
+              
+              <div class="index-main-detail index-main-detail1 delay-load" data-imgbg="url(/static/images/index_main_detail_outdoor.jpg) no-repeat top"></div>
+                <span class="index-main-detail-price red"><span class="bold">¥<span style="font-size:40px;">10</span></span> 起</span>
+              <a class="btn-style index-btn-position1 color-green" style="background-color: #0374c6" href="insurances/121.html">了解详情</a>
+            </div>
+
+      </div>
+    </div>
+
+<div class="footer-index">
+  <div class="top-inner">
+    <div class="footer-infos">
+      <div class="footer-box footer-box1">
+        <p class="bold title">联系我们</p>
+        <p>客服热线（工作时间 09:00-21:00）</p>
+        <p>
+          <img src="{% static "assets/desktop/ico-phone-5602c1009576140eb8ecf8da79eb7c83ad8391e485d1a29ede9f4739ef1db19d.png" %}">
+          <span style="color:#0fa54c;font-size:15px;font-weight:bold;">400-11-78360</span>
+        </p>
+        <p style="margin-top:15px;">客服邮箱</p>
+        <p>
+          <img src="{% static "assets/desktop/ico-mailbox-1cb43efb02c608226857f0e26440f45192c9ca89bd789b1f9b2386efd82561f6.png" %}" >
+          <span style="color:#0fa54c;font-size:15px;font-weight:bold;">service@qibao360.com</span>
+        </p>
+      </div>
+      <div class="footer-box footer-box2">
+        <p class="bold title">关于我们</p>
+        <p><a href="help/aboutus.html">企业介绍</a></p>
+        <p><a href="help/license.html">资质牌照</a></p>
+        <p><a href="help/how_to_insure.html">服务指南</a></p>
+      </div>
+      <div class="footer-box footer-box3">
+        <p class="bold title">关注我们</p>
+        <p>企保360公众号</p>
+        <img src="{% static "images/index-footer-code.png" %}" alt="Index footer code" />
+      </div>
+      <div class="clear"></div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+<div id="templete" style="display:none">
+  <div class="index_year_end">
+    <div class="top-inner">
+      <img style="margin-left:-386px" src="{% static "images/index_end_year.jpg" %}" alt="Index end year" />
+      <input type="button" id="index_year_end_close"/>
+      <div class="clear"></div>
+    </div>
+  </div>
+</div>
+{% block extrajs %}
+<script type="text/javascript">
+/*$(function(){
+  //banner
+  $(".banner").slide({
+    titCell:".banner-hd ul",
+    mainCell:".banner-bd ul",
+    effect:"leftLoop",
+    //autoPlay:true,
+    autoPage:true,
+    interTime:2000,
+    mouseOverStop:true,
+    delayTime:300,
+    prevCell:'.banner-btn-prev',
+    nextCell:'.banner-btn-next',
+  });
+  $(".banner").mouseenter(function(){
+    $('.banner-hd,.banner-btn').stop().fadeIn(300)
+  }).mouseleave(function(){
+    $('.banner-hd,.banner-btn').stop().fadeOut(300)
+  })
+  //set_reload()
+  function set_reload(){
+    var timer
+    var reload=function(){
+      window.location.reload()
+    }
+    window.addEventListener('resize',reload)
+    //setTimeout(function(){
+    //  window.removeEventListener('resize',reload)
+    //},3000)
+  }
+})*/
+$(function(){
+  //延迟加载
+  var h=$(window).height()
+  delayLoad(h)
+  $(window).resize(function(){
+    h=$(window).height()
+  })
+  $(window).scroll(function(){
+    delayLoad(h)
+  })
+  function delayLoad(h){
+    var top=$(window).scrollTop()
+    $('.delay-load').each(function(){
+      var height=$(this).offset().top
+      if(top>(height-h) && top<height+360){//this is img height ,the args for the function
+        //console.log($(this).data('imgbg'))
+        if($(this).data('imgbg')){
+          $(this).css({background:$(this).data('imgbg')})
+        }
+        if($(this).data('img')){
+          $(this).attr({src:$(this).data('img')})
+        }
+        $(this).removeClass('delay-load')
+      }
+    })
+  }
+})
+
+/*
+$(function(){
+  //预加载
+  var imgs=["<#%= asset_path 'desktop/index-main-detail1h.jpg' %>","<#%= asset_path 'desktop/index-main-detail2h.jpg' %>","<#%= asset_path 'desktop/index-main-detail3h.jpg' %>"]
+  for(var i in imgs){
+    var img=new Image();
+    img.src=imgs[i]
+    //img.onload=function(){
+    //  console.log('loaded')
+    //}
+  }
+})*/
+$(function(){
+  //友情链接
+  $(".footer-links").slide({
+    mainCell:".footer-bd ul",
+    effect:"leftLoop",
+      //autoPlay:true,
+      autoPage:true,
+      interTime:2000,
+      mouseOverStop:true,
+      delayTime:300,
+      prevCell:'.footer-btn-prev',
+      nextCell:'.footer-btn-next',
+  });
+})
+
+/*
+$(function(){
+  var html_year_end=$('#templete').html()
+  $('body').prepend(html_year_end)
+  $('.index_year_end').animate({
+    height:'110px'
+  },200)
+  $('#index_year_end_close').click(function(){
+    $('.index_year_end').animate({
+      height:'0'
+    },200,function(){
+      setTimeout(function(){
+        $('.index_year_end').remove()
+      },1000)
+    })
+  })
+})
+*/
+
+</script>
+{% endblock %}
+
+  <div class="clear"></div>
+<div class="footer">
+  <div class="top-inner">
+    <p class="footer-copyright">
+    客服热线：400-11-78360，客服邮箱：service@qibao360.com<br>
+    备案号与版权信息：@2014 上海智多屏软件科技有限公司，All rights reserved<br>
+    备案号：沪公网安备 31010802001812号，<a target="_blank" href="http://www.miitbeian.gov.cn/">沪ICP备 14007660号-3</a>，保险网络销售资质提供商：中元保险经纪有限公司，rev: 2017-03-28
+  </p>
+  </div>
+</div>
+
+<style>
+  p.footer-copyright > a {
+    color: white;
+  }
+  p.footer-copyright > a:hover {
+    color: white;
+  }
+  p.footer-copyright > a:visited {
+    color: white;
+  }
+</style>
+
+</body>
+
+
+<!-- Mirrored from qibao360.com/ by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 24 Mar 2019 08:39:27 GMT -->
+</html>
